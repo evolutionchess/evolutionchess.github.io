@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Chanter
-spec: Psyker
+title: Engineer
+spec: Air Force
 class: Supporter
 ---

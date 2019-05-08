@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
-spec: Puppet
+title: Razorclaw
+spec: Beast
 class: Assassin
 ---

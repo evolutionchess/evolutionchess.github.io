@@ -1,160 +1,160 @@
-Name,Level,Minimal Attack,Maximum Attack,Health,Armor,Force Defense
-Keenedge,1,80,113,550,5,0%
-Keenedge,2,,,,,
-Keenedge,3,,,,,
-Chanter,1,45,56,500,10,0%
-Chanter,2,,,,,
-Chanter,3,,,,,
-Hierophant,1,,,,,
-Hierophant,2,,,,,
-Hierophant,3,146,176,1500,5,0.00%
-Sniper,1,,,,,
-Sniper,2,,,,,
-Sniper,3,138,153,1600,5,
-Medic,1,,,,,
-Medic,2,,,,,
-Medic,3,266,320,1500,5,0.00%
-Ironbird Rider,1,,,,,
-Ironbird Rider,2,,,,,
-Ironbird Rider,3,166,184,1600,5,0.00%
-Marauder,1,,,,,
-Marauder,2,,,,,
-Marauder,3,128,157,2800,9,0.00%
-Kamikaze,1,,,,,
-Kamikaze,2,,,,,
-Kamikaze,3,173,208,1500,5,0.00%
-Oculus,1,,,,,
-Oculus,2,,,,,
-Oculus,3,192,214,1900,0,0.00%
-Razorclaw,1,,,,,
-Razorclaw,2,,,,,
-Razorclaw,3,230,253,2600,5,0.00%
-Panda Monk,1,,,,,
-Panda Monk,2,,,,,
-Panda Monk,3,200,220,2800,5,0.00%
-Tusker,1,,,,,
-Tusker,2,,,,,
-Tusker,3,139,232,2600,5,0.00%
-Illusionist,1,,,,,
-Illusionist,2,,,,,
-Illusionist,3,167,185,1900,0,0.00%
-Siren,1,,,,,
-Siren,2,,,,,
-Siren,3,385,420,2200,0,0.00%
-Thunderer,1,,,,,
-Thunderer,2,,,,,
-Thunderer,3,,,,,
-Vajra,1,,,,,
-Vajra,2,,,,,
-Vajra,3,180,270,2300,5,0.00%
-Blademaster,1,,,,,
-Blademaster,2,130,140,1200,5,0.00%
-Blademaster,3,,,,,
-Skycrab,1,,,,,
-Skycrab,2,,,,,
-Skycrab,3,187,206,2200,5,0.00%
-Gorilla,1,,,,,
-Gorilla,2,133,291,1600,8,0.00%
-Gorilla,3,267,291,3200,10,0.00%
-Dragon Breath,1,,,,,
-Dragon Breath,2,,,,,
-Dragon Breath,3,283,330,2400,5,0.00%
-Paviser,1,,,,,
-Paviser,2,,,,,
-Paviser,3,123,338,3000,5,0.00%
-Acidtooth,1,,,,,
-Acidtooth,2,175,250,1300,5,0.00%
-Acidtooth,3,350,500,2600,5,0.00%
-Mindbreaker,1,,,,,
-Mindbreaker,2,,,,,
-Mindbreaker,3,282,314,1900,0,0.00%
-Vinewarden,1,,,,,
-Vinewarden,2,198,283,1300,5,0.00%
-Vinewarden,3,,,,,
-Slasher,1,,,,,
-Slasher,2,128,165,1100,5,0.00%
-Slasher,3,,,,,
-Electrocutioner,1,,,,,
-Electrocutioner,2,,,,,
-Electrocutioner,3,381,458,3000,5,0.00%
-Arhat,1,,,,,
-Arhat,2,306,332,1100,5,0.00%
-Arhat,3,613,664,2200,5,0.00%
-Catapult,1,,,,,
-Catapult,2,,,,,
-Catapult,3,166,200,3200,10,0.00%
-Outrider,1,,,,,
-Outrider,2,93,103,1100,5,0.00%
-Outrider,3,187,206,2200,5,0.00%
-Dauntless,1,,,,,
-Dauntless,2,,,,,
-Dauntless,3,166,184,1600,5,0.00%
-Engineer,1,,,,,
-Engineer,2,,,,,
-Engineer,3,333,400,2000,0,20.00%
-Commando,1,,,,,
-Commando,2,,,,,
-Commando,3,390,510,1800,5,0.00%
-Mortus,1,,,,,
-Mortus,2,,,,,
-Mortus,3,220,264,2000,5,0.00%
-Dreadpaw,1,,,,,
-Dreadpaw,2,,,,,
-Dreadpaw,3,309,370,3000,5,0.00%
-Direwing,1,,,,,
-Direwing,2,,,,,
-Direwing,3,420,504,2200,5,20.00%
-Skyclaw,1,,,,,
-Skyclaw,2,,,,,
-Skyclaw,3,200,280,2600,5,30.00%
-Shuriken Panda,1,,,,,
-Shuriken Panda,2,,,,,
-Shuriken Panda,3,240,288,2200,5,20.00%
-Goldmane,1,,,,,
-Goldmane,2,,,,,
-Goldmane,3,182,218,2800,10,0.00%
-Bulwark,1,,,,,
-Bulwark,2,203,221,2100,5,0.00%
-Bulwark,3,,,,,
-Tempest Keeper,1,,,,,
-Tempest Keeper,2,,,,,
-Tempest Keeper,3,320,408,3000,5,10.00%
-Sumeru,1,,,,,
-Sumeru,2,176,212,1600,0,20.00%
-Sumeru,3,,,,,
-Warbringer,1,,,,,
-Warbringer,2,,,,,
-Warbringer,3,392,436,3600,5,0.00%
-Grenadier,1,,,,,
-Grenadier,2,,,,,
-Grenadier,3,180,200,2800,5,0.00%
-Sentinel,1,,,,,
-Sentinel,2,,,,,
-Sentinel,3,360,440,3000,5,0.00%
-Cruiser,1,,,,,
-Cruiser,2,,,,,
-Cruiser,3,122,137,2600,5,0.00%
-Soulmentor,1,,,,,
-Soulmentor,2,183,220,1700,5,0.00%
-Soulmentor,3,,,,,
-Hive Queen,1,,,,,
-Hive Queen,2,,,,,
-Hive Queen,3,118,135,1800,5,0.00%
-Bone Dragon,1,,,,,
-Bone Dragon,2,,,,,
-Bone Dragon,3,471,565,3800,10,0.00%
-Chan Master,1,,,,,
-Chan Master,2,,,,,
-Chan Master,3,224,252,3400,5,20.00%
-Mirage Caller,1,,,,,
-Mirage Caller,2,126,154,2000,5,40.00%
-Mirage Caller,3,,,,,
-Hailstorm,1,,,,,
-Hailstorm,2,,,,,
-Hailstorm,3,400,480,3600,15,0.00%
-Devourer,1,,,,,
-Devourer,2,,,,,
-Devourer,3,192,234,4000 + 5/s,5,40.00%
-Forest Rager,1,,,,,
-Forest Rager,2,81,99,1900,5,0.00%
-Forest Rager,3,,,,,
+Name,Level,Coin,Image,Minimal Attack,Maximum Attack,Health,Armor,Force Defense
+Keenedge,1,1,1,80,113,550,5,0%
+Keenedge,2,3,2,,,,,
+Keenedge,3,9,3,,,,,
+Chanter,1,1,4,45,56,500,10,0%
+Chanter,2,3,5,,,,,
+Chanter,3,9,6,,,,,
+Hierophant,1,1,7,,,,,
+Hierophant,2,3,8,,,,,
+Hierophant,3,9,9,146,176,1500,5,0.00%
+Sniper,1,1,10,,,,,
+Sniper,2,3,11,,,,,
+Sniper,3,9,12,138,153,1600,5,
+Medic,1,1,13,,,,,
+Medic,2,3,14,,,,,
+Medic,3,9,15,266,320,1500,5,0.00%
+Ironbird Rider,1,1,16,,,,,
+Ironbird Rider,2,3,17,,,,,
+Ironbird Rider,3,9,18,166,184,1600,5,0.00%
+Marauder,1,1,19,,,,,
+Marauder,2,3,20,,,,,
+Marauder,3,9,21,128,157,2800,9,0.00%
+Kamikaze,1,1,22,,,,,
+Kamikaze,2,3,23,,,,,
+Kamikaze,3,9,24,173,208,1500,5,0.00%
+Oculus,1,1,25,,,,,
+Oculus,2,3,26,,,,,
+Oculus,3,9,27,192,214,1900,0,0.00%
+Razorclaw,1,1,28,,,,,
+Razorclaw,2,3,29,,,,,
+Razorclaw,3,9,30,230,253,2600,5,0.00%
+Panda Monk,1,1,31,,,,,
+Panda Monk,2,3,32,,,,,
+Panda Monk,3,9,33,200,220,2800,5,0.00%
+Tusker,1,1,34,,,,,
+Tusker,2,3,35,,,,,
+Tusker,3,9,36,139,232,2600,5,0.00%
+Illusionist,1,2,37,,,,,
+Illusionist,2,6,38,,,,,
+Illusionist,3,18,39,167,185,1900,0,0.00%
+Siren,1,2,40,,,,,
+Siren,2,6,41,,,,,
+Siren,3,18,42,385,420,2200,0,0.00%
+Thunderer,1,2,43,,,,,
+Thunderer,2,6,44,,,,,
+Thunderer,3,18,45,,,,,
+Vajra,1,2,46,,,,,
+Vajra,2,6,47,,,,,
+Vajra,3,18,48,180,270,2300,5,0.00%
+Blademaster,1,2,49,,,,,
+Blademaster,2,6,50,130,140,1200,5,0.00%
+Blademaster,3,18,51,,,,,
+Skycrab,1,2,52,,,,,
+Skycrab,2,6,53,,,,,
+Skycrab,3,18,54,187,206,2200,5,0.00%
+Gorilla,1,2,55,,,,,
+Gorilla,2,6,56,133,291,1600,8,0.00%
+Gorilla,3,18,57,267,291,3200,10,0.00%
+Dragon Breath,1,2,58,,,,,
+Dragon Breath,2,6,59,,,,,
+Dragon Breath,3,18,60,283,330,2400,5,0.00%
+Paviser,1,2,61,,,,,
+Paviser,2,6,62,,,,,
+Paviser,3,18,63,123,338,3000,5,0.00%
+Acidtooth,1,2,64,,,,,
+Acidtooth,2,6,65,175,250,1300,5,0.00%
+Acidtooth,3,18,66,350,500,2600,5,0.00%
+Mindbreaker,1,2,67,,,,,
+Mindbreaker,2,6,68,,,,,
+Mindbreaker,3,18,69,282,314,1900,0,0.00%
+Vinewarden,1,2,70,,,,,
+Vinewarden,2,6,71,198,283,1300,5,0.00%
+Vinewarden,3,18,72,,,,,
+Slasher,1,3,73,,,,,
+Slasher,2,9,74,128,165,1100,5,0.00%
+Slasher,3,27,75,,,,,
+Electrocutioner,1,3,76,,,,,
+Electrocutioner,2,9,77,,,,,
+Electrocutioner,3,27,78,381,458,3000,5,0.00%
+Arhat,1,3,79,,,,,
+Arhat,2,9,80,306,332,1100,5,0.00%
+Arhat,3,27,81,613,664,2200,5,0.00%
+Catapult,1,3,82,,,,,
+Catapult,2,9,83,,,,,
+Catapult,3,27,84,166,200,3200,10,0.00%
+Outrider,1,3,85,,,,,
+Outrider,2,9,86,93,103,1100,5,0.00%
+Outrider,3,27,87,187,206,2200,5,0.00%
+Dauntless,1,3,88,,,,,
+Dauntless,2,9,89,,,,,
+Dauntless,3,27,90,166,184,1600,5,0.00%
+Engineer,1,3,91,,,,,
+Engineer,2,9,92,,,,,
+Engineer,3,27,93,333,400,2000,0,20.00%
+Commando,1,3,94,,,,,
+Commando,2,9,95,,,,,
+Commando,3,27,96,390,510,1800,5,0.00%
+Mortus,1,3,97,,,,,
+Mortus,2,9,98,,,,,
+Mortus,3,27,99,220,264,2000,5,0.00%
+Dreadpaw,1,3,100,,,,,
+Dreadpaw,2,9,101,,,,,
+Dreadpaw,3,27,102,309,370,3000,5,0.00%
+Direwing,1,3,103,,,,,
+Direwing,2,9,104,,,,,
+Direwing,3,27,105,420,504,2200,5,20.00%
+Skyclaw,1,3,106,,,,,
+Skyclaw,2,9,107,,,,,
+Skyclaw,3,27,108,200,280,2600,5,30.00%
+Shuriken Panda,1,3,109,,,,,
+Shuriken Panda,2,9,110,,,,,
+Shuriken Panda,3,27,111,240,288,2200,5,20.00%
+Goldmane,1,3,112,,,,,
+Goldmane,2,9,113,,,,,
+Goldmane,3,27,114,182,218,2800,10,0.00%
+Bulwark,1,4,115,,,,,
+Bulwark,2,12,116,203,221,2100,5,0.00%
+Bulwark,3,36,117,,,,,
+Tempest Keeper,1,4,118,,,,,
+Tempest Keeper,2,12,119,,,,,
+Tempest Keeper,3,36,120,320,408,3000,5,10.00%
+Sumeru,1,4,121,,,,,
+Sumeru,2,12,122,176,212,1600,0,20.00%
+Sumeru,3,36,123,,,,,
+Warbringer,1,4,124,,,,,
+Warbringer,2,12,125,,,,,
+Warbringer,3,36,126,392,436,3600,5,0.00%
+Grenadier,1,4,127,,,,,
+Grenadier,2,12,128,,,,,
+Grenadier,3,36,129,180,200,2800,5,0.00%
+Sentinel,1,4,130,,,,,
+Sentinel,2,12,131,,,,,
+Sentinel,3,36,132,360,440,3000,5,0.00%
+Cruiser,1,4,133,,,,,
+Cruiser,2,12,134,,,,,
+Cruiser,3,36,135,122,137,2600,5,0.00%
+Soulmentor,1,4,136,,,,,
+Soulmentor,2,12,137,183,220,1700,5,0.00%
+Soulmentor,3,36,138,,,,,
+Hive Queen,1,4,139,,,,,
+Hive Queen,2,12,140,,,,,
+Hive Queen,3,36,141,118,135,1800,5,0.00%
+Bone Dragon,1,4,142,,,,,
+Bone Dragon,2,12,143,,,,,
+Bone Dragon,3,36,144,471,565,3800,10,0.00%
+Chan Master,1,4,145,,,,,
+Chan Master,2,12,146,,,,,
+Chan Master,3,36,147,224,252,3400,5,20.00%
+Mirage Caller,1,5,148,,,,,
+Mirage Caller,2,15,149,126,154,2000,5,40.00%
+Mirage Caller,3,45,150,,,,,
+Hailstorm,1,5,151,,,,,
+Hailstorm,2,15,152,,,,,
+Hailstorm,3,45,153,400,480,3600,15,0.00%
+Devourer,1,5,154,,,,,
+Devourer,2,15,155,,,,,
+Devourer,3,45,156,192,234,4000 + 5/s,5,40.00%
+Forest Rager,1,5,157,,,,,
+Forest Rager,2,15,158,81,99,1900,5,0.00%
+Forest Rager,3,45,159,,,,,

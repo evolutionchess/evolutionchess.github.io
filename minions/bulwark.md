@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
+title: Bulwark
 spec: Puppet
-class: Assassin
+class: Guardian
 ---

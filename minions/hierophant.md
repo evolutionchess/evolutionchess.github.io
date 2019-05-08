@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Chanter
+title: Hierophant
 spec: Psyker
-class: Supporter
+class: Blaster
 ---

@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Chanter
+title: Thunderer
 spec: Psyker
-class: Supporter
+class: Longshot
 ---

@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
-spec: Puppet
+title: Siren
+spec: Kraken
 class: Assassin
 ---

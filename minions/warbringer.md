@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
+title: Warbringer
 spec: Puppet
-class: Assassin
+class: Guardian
 ---

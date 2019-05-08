@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
-spec: Puppet
+title: Sentinel
+spec: Mech
 class: Assassin
 ---

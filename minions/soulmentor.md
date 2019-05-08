@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Chanter
-spec: Psyker
+title: Soulmentor
+spec: Beast
 class: Supporter
 ---

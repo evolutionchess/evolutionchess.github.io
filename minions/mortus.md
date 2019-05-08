@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
-spec: Puppet
+title: Mortus
+spec: Air Force
 class: Assassin
 ---

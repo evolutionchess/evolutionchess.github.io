@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
+title: Blademaster
 spec: Puppet
-class: Assassin
+class: Vanguard
 ---

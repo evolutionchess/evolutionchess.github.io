@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
+title: Slasher
 spec: Puppet
-class: Assassin
+class: Vanguard
 ---

@@ -1,6 +1,6 @@
 ---
 layout: minion
-title: Keenedge
-spec: Puppet
+title: Shuriken Panda
+spec: Panda
 class: Assassin
 ---
