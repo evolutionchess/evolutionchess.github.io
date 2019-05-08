@@ -1,14 +1,59 @@
 ---
 layout: default
 ---
+{% assign minion = site.data.stats | where: "Name", page.title %}
 <article class="post">
   <div class="post-content">
     <div class="row">
       <div class="col-12 col-md-6">
         <header class="post-header">
           <h1 class="post-title">{{ page.title | escape }}</h1>
-          <h3>{{ page.category }}</h3>
+          <h3><span style="color: blue">{{ page.spec }}</span> - <span style="color: green">{{page.class}}</span></h3>
         </header>
+        <div>
+          {% for level in minion %}
+            <div id="stat{{level.Level}}">
+              <table>
+                <tr>
+                  <td>Level</td>
+                  <td>{{level.Level}}</td>
+                  <td>Coin</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Attack</td>
+                  <td>{{level["Minimal Attack"]}} - {{level["Maximum Attack"]}}</td>
+                  <td>Health</td>
+                  <td>{{level.Health}}</td>
+                </tr>
+                <tr>
+                  <td>Armor Debuff</td>
+                  <td>0</td>
+                  <td>Armor</td>
+                  <td>{{level.Armor}}</td>
+                </tr>
+                <tr>
+                  <td>Ability Damage</td>
+                  <td>0%</td>
+                  <td>Force Defense</td>
+                  <td>{{level["Force Defense"]}}</td>
+                </tr>
+                <tr>
+                  <td>Critical Strike</td>
+                  <td>0%</td>
+                  <td>Dodge</td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Lifesteal</td>
+                  <td>0%</td>
+                  <td>Health Regen</td>
+                  <td>5</td>
+                </tr>
+              </table>
+            </div>
+          {% endfor %}
+        </div>
       </div>
       <div class="col-12 col-md-6">
         <div class="slider">
@@ -49,6 +94,7 @@ layout: default
         display = 'block';
       }
       document.getElementById('img' + i).style.display = display;
+      document.getElementById('stat' + i).style.display = display;
     });
   }
   show(1);
