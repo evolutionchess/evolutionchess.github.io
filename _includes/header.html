@@ -18,8 +18,8 @@
 
         <div class="trigger">
           {%- for menu in site.menus -%}
-            {%- assign page = site.pages | where: "menu", menu | first -%}
-            <a class="page-link" href="{{ page.url | relative_url }}">{{ menu }}</a>
+          {%- assign page = site.pages | where: "menu", menu | first -%}
+          <a class="page-link" href="{{ page.url | relative_url }}">{{ menu }}</a>
           {%- endfor -%}
         </div>
       </nav>
