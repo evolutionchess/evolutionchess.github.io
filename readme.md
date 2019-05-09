@@ -14,7 +14,7 @@ bundle install
 ```
 4. Run this project
 ```
-jekyll serve --watch
+jekyll serve --watch --incremental
 ```
 
 [Documentation](https://jekyllrb.com/docs/)
