@@ -1,6 +1,8 @@
 ---
-layout: minion
+layout: hero
 title: Skyclaw
-spec: Raptor - Beast
+spec:
+    - Raptor
+    - Beast
 class: Vanguard
 ---

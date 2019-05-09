@@ -1,5 +1,5 @@
 ---
-layout: minion
+layout: hero
 title: Medic
 spec: Marine
 class: Supporter

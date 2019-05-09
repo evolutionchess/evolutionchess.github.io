@@ -1,5 +1,5 @@
 ---
-layout: minion
+layout: hero
 title: Skycrab
 spec: Kraken
 class: Siegebreaker

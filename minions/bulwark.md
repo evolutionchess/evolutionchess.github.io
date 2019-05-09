@@ -1,5 +1,5 @@
 ---
-layout: minion
+layout: hero
 title: Bulwark
 spec: Puppet
 class: Guardian

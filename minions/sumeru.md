@@ -1,6 +1,8 @@
 ---
-layout: minion
+layout: hero
 title: Sumeru
-spec: Kraken - Puppet
+spec:
+    - Kraken
+    - Puppet
 class: Summoner
 ---

@@ -1,5 +1,5 @@
 ---
-layout: minion
+layout: hero
 title: Direwing
 spec: Raptor
 class: Longshot

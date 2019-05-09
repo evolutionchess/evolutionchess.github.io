@@ -1,6 +1,8 @@
 ---
-layout: minion
+layout: hero
 title: Illusionist
-spec: Psyker - Puppet
+spec:
+    - Psyker
+    - Puppet
 class: Summoner
 ---

@@ -1,5 +1,5 @@
 ---
-layout: minion
+layout: hero
 title: Tempest Keeper
 spec: Walker
 class: Siegebreaker

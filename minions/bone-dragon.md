@@ -1,6 +1,8 @@
 ---
-layout: minion
+layout: hero
 title: Bone Dragon
-spec: Raptor - Immortal
+spec:
+    - Raptor
+    - Immortal
 class: Siegebreaker
 ---
