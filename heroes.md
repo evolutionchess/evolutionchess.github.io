@@ -47,7 +47,9 @@ menu: Heroes
                     <td>
                         {% for page in hero_pages %}
                         {% if page.spec == spec and page.class == class %}
-                            <a href="{{page.url}}">{{page.title}}</a><br>
+                            <a href="{{page.url}}" title="{{page.title}}">
+                            <img src="/assets/img/heroes/avatar/{{page.title}}.png"/>
+                            </a>
                         {% endif %}
                         {% endfor %}
                     </td>
