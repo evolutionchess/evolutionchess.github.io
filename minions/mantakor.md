@@ -1,6 +1,6 @@
 ---
 layout: hero
-title: Sumeru
+title: Mantakor
 spec:
     - Kraken
     - Puppet
