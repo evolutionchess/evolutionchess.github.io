@@ -17,7 +17,7 @@ title: Arena Of Evolution Strategy Guide
 email: nguyenhongphat28121998@gmail.com
 description: "This site is NOT an officical document for Arena of Evolution: Red Tides, it's just a fandom wiki created by an anonymous player."
 baseurl: ""
-url: ""
+url: "https://evolutionchess.github.io"
 facebook_username: nguyenhongphat0
 github_username:  nguyenhongphat0
 download_link: "https://play.google.com/store/apps/details?id=com.herogame.gplay.evolutionchess&hl=en_US"
@@ -32,6 +32,7 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

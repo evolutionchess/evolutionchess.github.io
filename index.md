@@ -4,13 +4,13 @@ title: Arena Of Evolution - Red Tides Strategy Guide
 ---
 <h2>Wiki</h2>
 <div class="row">
-    <div class="col">
+    <div class="col-12 col-md-4">
         <a href="/heroes.html" class="btn btn-feature">Heroes</a>
     </div>
-    <div class="col">
+    <div class="col-6 col-md-4">
         <a href="/specs.html" class="btn btn-feature">Specs</a>
     </div>
-    <div class="col">
+    <div class="col-6 col-md-4">
         <a href="/classes.html" class="btn btn-feature">Classes</a>
     </div>
 </div>
