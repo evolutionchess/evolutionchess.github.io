@@ -5,28 +5,19 @@
 
     <h2 class="footer-heading">{{ site.title | escape }}</h2>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <small>&copy; {{- site.description | escape -}}</small>
+        <small>If you want to contribute to this project, visit the repository on <a target="_blank" href="{{ site.repository_link }}">Github</a></small>
+      </div>
+      <div class="col-12 col-md-4">
         <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          {%- if site.download_link -%}<li><a target="_blank" href="{{ site.download_link }}" title="Download Now">Download Now</a></li>{%- endif -%}
+          {%- for menu in site.menus -%}
+          {%- assign page = site.pages | where: "menu", menu | first -%}
+          <li><a class="page-link" href="{{ page.url | relative_url }}">{{ menu }}</a></li>
+          {%- endfor -%}
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
       </div>
     </div>
 

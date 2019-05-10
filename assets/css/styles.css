@@ -1,0 +1,57 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+footer .svg-icon {
+    padding: 0;
+}
+.slider {
+    position: relative;
+}
+.slider img {
+    width: 100%;
+}
+.slider .lv {
+    cursor: pointer;
+    position: absolute;
+    width: 15%;
+    height: 25%;
+    top: 70%;
+}
+#heroes {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #c9c9c9;
+}
+#heroes table {
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+@media screen and (min-width:992px) {
+    #heroes {
+        overflow: hidden;
+        border: none;
+        width: 150%;
+        margin-left: -25%;
+    }
+    #heroes table {
+        width: 100%;
+        table-layout: fixed;
+    }
+}
+.btn-feature {
+    display: block;
+    width: 100%;
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: lightgray;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.btn-feature:hover {
+    background: #333;
+    color: white;
+    text-decoration: none;
+}

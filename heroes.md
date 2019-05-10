@@ -7,29 +7,6 @@ menu: Heroes
 {% assign specs = hero_pages | map: "spec" | uniq | sort %}
 {% assign classes = hero_pages | map: "class" | uniq | sort %}
 <div id="heroes">
-    <style scoped>
-        #heroes {
-            width: 100%;
-            overflow-x: auto;
-            border: 1px solid #c9c9c9;
-        }
-        #heroes table {
-            margin-bottom: 0px;
-            font-size: 14px;
-        }
-        @media screen and (min-width:992px) {
-            #heroes {
-                overflow: hidden;
-                border: none;
-                width: 150%;
-                margin-left: -25%;
-            }
-            #heroes table {
-                width: 100%;
-                table-layout: fixed;
-            }
-        }
-    </style>
     <table>
         <thead>
             <tr>
