@@ -35,6 +35,29 @@ description: Build and test your own combo of army to see how many buff effects 
           :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''">
         </div>
       </div>
+      <div id="summary">
+        <h3><span :style="inchess.length > 10 ? 'color: red' : ''">{{ inchess.length }}</span>/10 hero{{ inchess.length > 1 ? 'es' : ''}}</h3>
+        <div v-for="(s, key) in specs">
+          <b style="color: blue">{{ key }}</b>
+          <div
+            v-for="(hero, i) in s"
+            :v-key="i"
+            class="square"
+            @dblclick="view(hero)"
+            :style="'background-image: ' + background(hero.name)"
+            :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+        </div>
+        <div v-for="(c, key) in classes">
+          <b style="color: green">{{ key }}</b>
+          <div
+            v-for="(hero, i) in c"
+            :v-key="i"
+            class="square"
+            @dblclick="view(hero)"
+            :style="'background-image: ' + background(hero.name)"
+            :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -44,6 +67,24 @@ description: Build and test your own combo of army to see how many buff effects 
 <script>
 var app = new Vue({
   el: '#mix',
+  computed: {
+    inchess: function() {
+      window.inchess = this.heroes.filter(h => h.inchess);
+      return this.heroes.filter(h => h.inchess)
+    },
+    classes: function() {
+      return this.inchess.reduce(function(total, e) {
+        (total[e.class] = total[e.class] || []).push(e);
+        return total;
+      }, {});
+    },
+    specs: function() {
+      return this.inchess.reduce(function(total, e) {
+        (total[e.spec] = total[e.spec] || []).push(e);
+        return total;
+      }, {});
+    }
+  },
   methods: {
     dragstart: function(i, e) {
       e.dataTransfer.setData('index', i)

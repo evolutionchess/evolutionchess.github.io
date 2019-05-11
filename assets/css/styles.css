@@ -28,12 +28,6 @@ footer .svg-icon {
     font-size: 14px;
 }
 @media screen and (min-width:992px) {
-    #heroes {
-        overflow: hidden;
-        border: none;
-        width: 150%;
-        margin-left: -25%;
-    }
     #heroes table {
         width: 100%;
         table-layout: fixed;
@@ -67,4 +61,11 @@ footer .svg-icon {
 #mix .blank {
     background-color: #fbbc05;
     border: 1px solid white;
+    border-radius: 10px;
+}
+#summary .square {
+    float: none;
+    display: inline-block;
+    width: 6.25%;
+    padding-bottom: 6.25%;
 }
