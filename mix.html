@@ -1,0 +1,113 @@
+---
+layout: page
+title: Mix your army
+menu: Mix
+description: Build and test your own combo of army to see how many buff effects you got when putting this army in to battle.
+---
+{% assign heroes = site.pages | where: "layout", "hero" %}
+{% raw %}
+<div id="mix">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div
+        v-for="(hero, i) in heroes"
+        v-if="!hero.inchess"
+        :v-key="i"
+        class="square"
+        @click="pick(i)"
+        @dblclick="view(hero)"
+        draggable="true"
+        @dragstart="dragstart(i, $event)"
+        :style="'background-image: ' + background(hero.name)"
+        :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div v-for="i in 4">
+        <div
+          v-for="j in 8"
+          class="square blank"
+          draggable="true"
+          @click="recall(j, i)"
+          @dragstart="dragagain(j, i, $event)"
+          @dragover="dragover"
+          @dragleave="dragleave"
+          @drop="drop(j, i, $event)"
+          :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+var app = new Vue({
+  el: '#mix',
+  methods: {
+    dragstart: function(i, e) {
+      e.dataTransfer.setData('index', i)
+    },
+    dragagain: function(x, y, e) {
+      this.heroes[this.chess[y-1][x-1]].inchess = false;
+      e.dataTransfer.setData('index', this.chess[y-1][x-1]);
+      this.chess[y-1][x-1] = null;
+    },
+    dragover: function (e) {
+      e.preventDefault();
+      if (e.target.style.backgroundImage == '') {
+        e.target.style.backgroundColor = '#ea4335';
+      }
+    },
+    dragleave: function (e) {
+      if (e.target.style.backgroundImage == '') {
+        e.target.style.backgroundColor = '#fbbc05';
+      }
+    },
+    drop: function (x, y, e) {
+      e.target.style.backgroundColor = '#fbbc05';
+      let i = e.dataTransfer.getData('index');
+      if (!this.chess[y-1][x-1]) {
+        this.chess[y-1][x-1] = i;
+        this.heroes[i].inchess = true;
+      }
+    },
+    background: function(name) {
+      return 'url(\'/assets/img/heroes/avatar/' + name + '.png\')'
+    },
+    pick: function(index) {
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 8; j++) {
+          if (!this.chess[i][j]) {
+            this.chess[i][j] = index;
+            this.heroes[index].inchess = true;
+            return;
+          }
+        }
+      }
+    },
+    recall: function(x, y) {
+      this.heroes[this.chess[y-1][x-1]].inchess = false;
+      this.chess[y-1][x-1] = null;
+    },
+    view: function(hero) {
+      window.open('/heroes/' + hero.name.replace(' ', '-').toLowerCase(), '_blank').focus();
+    }
+  },
+  data: {
+    heroes: [
+      {% for hero in heroes %}
+      {
+        name: "{{ hero.title }}",
+        spec: "{{ hero.spec }}",
+        class: "{{ hero.class }}",
+        inchess: false
+      },
+      {% endfor %}
+    ],
+    chess: [
+      new Array(8), new Array(8), new Array(8), new Array(8)
+    ]
+  }
+})
+</script>

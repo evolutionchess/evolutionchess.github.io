@@ -55,3 +55,16 @@ footer .svg-icon {
     color: white;
     text-decoration: none;
 }
+#mix .square {
+    position: relative;
+    float: left;
+    width: 12.5%;
+    padding-bottom: 12.5%;
+    border-radius: 100%;
+    background-size: cover;
+    cursor: pointer;
+}
+#mix .blank {
+    background-color: #fbbc05;
+    border: 1px solid white;
+}
