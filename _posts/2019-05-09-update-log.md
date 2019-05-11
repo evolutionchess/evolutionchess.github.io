@@ -2,7 +2,7 @@
 layout: post
 title:  The spider was finally weakened
 date:   2019-05-09 13:29:36 +0700
-categories: arenaofevolution news
+categories: news
 ---
 ## New Feature
  

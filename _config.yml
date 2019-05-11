@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Arena Of Evolution Strategy Guide
+title: "Arena Of Evolution: Red Tides Guide"
+description: "Arena Of Evolution: Red Tides (Evolution Chess) Wiki, Guide and Strategy"
 email: nguyenhongphat28121998@gmail.com
-description: "This site is NOT an official document for Arena of Evolution: Red Tides, it's just a fandom wiki created by an anonymous player."
 baseurl: ""
 url: "https://evolutionchess.github.io"
 facebook_username: nguyenhongphat0

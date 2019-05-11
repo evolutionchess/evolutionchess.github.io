@@ -2,7 +2,7 @@
 layout: post
 title:  Arena of Evolution has reportedly rolled out in more territories
 date:   2019-05-08 13:29:36 +0700
-categories: arenaofevolution news
+categories: news
 ---
 <div data-direction="ltr" class="post-image"><img width="1024" height="576" src="/assets/img/posts/2019-05-08-aoert.jpg" alt="Arena of Evolution: Chess Heroes Android" /></div><div class="post-entry">
 <p>Arena of Evolution, the <span class="notranslate">Auto Chess</span> rip-off that soft launched on Android recently, has reportedly rolled out in more territories.</p>
