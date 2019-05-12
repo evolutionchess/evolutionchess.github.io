@@ -33,21 +33,35 @@ footer .svg-icon {
         table-layout: fixed;
     }
 }
-.btn-feature {
-    display: block;
+.feature-link {
+    display: table;
     width: 100%;
-    padding: 30px;
+    height: 100%;
+    padding: 10px;
+}
+#feature-mix {
+    background: repeating-linear-gradient(
+        45deg,
+        #606dbc,
+        #606dbc 10px,
+        #465298 10px,
+        #465298 20px
+    );
+    color: white;
+}
+.feature-link a {
+    display: table-cell;
     font-size: 20px;
-    text-align: center;
-    background: lightgray;
-    border-radius: 10px;
-    margin-top: 10px;
+    vertical-align: middle;
+}
+.post-list li {
     margin-bottom: 20px;
 }
-.btn-feature:hover {
-    background: #333;
-    color: white;
-    text-decoration: none;
+.feature-link a, .post-list li a {
+    text-align: center;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 10px;
+    padding: 10px;
 }
 #mix .square {
     position: relative;
