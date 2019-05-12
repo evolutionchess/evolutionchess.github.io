@@ -4,11 +4,14 @@ title: Mix your army
 menu: Mix
 description: Build and test your own combo of army to see how many buff effects you got when putting this army in to battle.
 ---
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 {% assign heroes = site.pages | where: "layout", "hero" %}
+{% assign specs = site.data.specs | map: "Name" | uniq %}
+{% assign classes = site.data.classes | map: "Name" | uniq %}
 {% raw %}
 <div id="mix">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 col-lg-4">
       <div
         v-for="(hero, i) in heroes"
         v-if="!hero.inchess"
@@ -19,9 +22,9 @@ description: Build and test your own combo of army to see how many buff effects 
         draggable="true"
         @dragstart="dragstart(i, $event)"
         :style="'background-image: ' + background(hero.name)"
-        :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+        :title="title(hero)"></div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 col-lg-4">
       <div v-for="i in 4">
         <div
           v-for="j in 8"
@@ -32,30 +35,53 @@ description: Build and test your own combo of army to see how many buff effects 
           @dragover="dragover"
           @dragleave="dragleave"
           @drop="drop(j, i, $event)"
-          :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''">
+          :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''"
+          :title="heroes[chess[i-1][j-1]] ? title(heroes[chess[i-1][j-1]]) : ''">
         </div>
       </div>
       <div id="summary">
         <h3><span :style="inchess.length > 10 ? 'color: red' : ''">{{ inchess.length }}</span>/10 hero{{ inchess.length > 1 ? 'es' : ''}}</h3>
-        <div v-for="(s, key) in specs">
-          <b style="color: blue">{{ key }}</b>
-          <div
-            v-for="(hero, i) in s"
-            :v-key="i"
-            class="square"
-            @dblclick="view(hero)"
-            :style="'background-image: ' + background(hero.name)"
-            :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+        <div class="col-6">
+          <div v-for="s in inspecs">
+            <b :style="'color: blue; opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')">{{ s.info.name }}</b>
+            <div
+              v-for="(hero, i) in s.heroes"
+              :v-key="i"
+              class="square"
+              @dblclick="view(hero)"
+              :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(s) ? '1' : '0.5')"
+              :title="title(hero)"></div>
+          </div>
         </div>
-        <div v-for="(c, key) in classes">
-          <b style="color: green">{{ key }}</b>
-          <div
-            v-for="(hero, i) in c"
-            :v-key="i"
-            class="square"
-            @dblclick="view(hero)"
-            :style="'background-image: ' + background(hero.name)"
-            :title="hero.name + ' - ' + hero.spec + ' - ' + hero.class"></div>
+        <div class="col-6">
+          <div v-for="(c, key) in inclasses">
+            <b :style="'color: green; opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')">{{ c.info.name }}</b>
+            <div
+              v-for="(hero, i) in c.heroes"
+              :v-key="i"
+              class="square"
+              @dblclick="view(hero)"
+              :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(c) ? '1' : '0.5')"
+              :title="title(hero)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <h3>Your buffs</h3>
+      <input type="checkbox" v-model="onlyActive"> Only show activated buff
+      <div id="buff" class="row">
+        <div id="spec" class="col-6">
+          <div v-for="s in specs">
+            <b :class="buffclass(s.active)">{{ s.name }}</b>
+            <div v-for="stat in s.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
+          </div>
+        </div>
+        <div id="class" class="col-6">
+          <div v-for="c in classes">
+            <b :class="buffclass(c.active)">{{ c.name }}</b>
+            <div v-for="stat in c.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -63,26 +89,30 @@ description: Build and test your own combo of army to see how many buff effects 
 </div>
 {% endraw %}
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 var app = new Vue({
   el: '#mix',
   computed: {
     inchess: function() {
-      window.inchess = this.heroes.filter(h => h.inchess);
       return this.heroes.filter(h => h.inchess)
     },
-    classes: function() {
-      return this.inchess.reduce(function(total, e) {
-        (total[e.class] = total[e.class] || []).push(e);
-        return total;
-      }, {});
+    inclasses: function() {
+      return this.classes
+        .map(c => ({
+          info: c,
+          heroes: this.inchess.filter(h => h.class.indexOf(c.name) >= 0)
+        }))
+        .filter(e => e.heroes.length > 0)
+        .sort((a, b) => b.heroes.length - a.heroes.length);
     },
-    specs: function() {
-      return this.inchess.reduce(function(total, e) {
-        (total[e.spec] = total[e.spec] || []).push(e);
-        return total;
-      }, {});
+    inspecs: function() {
+      return this.specs
+        .map(s => ({
+          info: s,
+          heroes: this.inchess.filter(h => h.spec.indexOf(s.name) >= 0)
+        }))
+        .filter(e => e.heroes.length > 0)
+        .sort((a, b) => b.heroes.length - a.heroes.length);
     }
   },
   methods: {
@@ -97,7 +127,7 @@ var app = new Vue({
     dragover: function (e) {
       e.preventDefault();
       if (e.target.style.backgroundImage == '') {
-        e.target.style.backgroundColor = '#ea4335';
+        e.target.style.backgroundColor = '#34a853';
       }
     },
     dragleave: function (e) {
@@ -116,6 +146,42 @@ var app = new Vue({
     background: function(name) {
       return 'url(\'/assets/img/heroes/avatar/' + name + '.png\')'
     },
+    title: function(hero) {
+      return hero.name + ' - ' + hero.spec + ' - ' + hero.class;
+    },
+    resetBuff: function(buff) {
+      buff.info.active = false;
+      buff.info.stats.forEach(lv => {
+        lv.active = false;
+      })
+    },
+    activeNumber: function(buff) {
+      let count = buff.heroes.length;
+      this.resetBuff(buff);
+      if (buff.info.name == "Walker" && count > 1) {
+        return 0;
+      }
+      let result = 0;
+      buff.info.stats.forEach(lv => {
+        if (lv.require <= count) {
+          buff.info.active = true;
+          lv.active = true;
+          if (lv.require > result) {
+            result = lv.require;            
+          }
+        }
+      })
+      return result;
+    },
+    buffclass: function(active) {
+      if (active) {
+        return 'active';
+      }
+      if (this.onlyActive && !active) {
+        return 'hidden';
+      }
+      return '';
+    },
     pick: function(index) {
       for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 8; j++) {
@@ -128,7 +194,10 @@ var app = new Vue({
       }
     },
     recall: function(x, y) {
-      this.heroes[this.chess[y-1][x-1]].inchess = false;
+      let hero = this.heroes[this.chess[y-1][x-1]];
+      if (hero) {
+        hero.inchess = false;
+      }
       this.chess[y-1][x-1] = null;
     },
     view: function(hero) {
@@ -140,15 +209,50 @@ var app = new Vue({
       {% for hero in heroes %}
       {
         name: "{{ hero.title }}",
-        spec: "{{ hero.spec }}",
-        class: "{{ hero.class }}",
+        spec: "{{ hero.spec | join: ' - ' }}",
+        class: "{{ hero.class | join: ' - '}}",
         inchess: false
+      },
+      {% endfor %}
+    ],
+    specs: [
+      {% for spec in specs %}
+      {
+        name: "{{ spec }}",
+        stats: [
+          {% assign levels = site.data.specs | where: "Name", spec %}
+          {% for level in levels %}
+            {
+              level: "{{ level.Level }}",
+              require: "{{ level.Require }}",
+              buff: "{{ level.Buff }}"
+            },
+          {% endfor %}
+        ]
+      },
+      {% endfor %}
+    ],
+    classes: [
+      {% for class in classes %}
+      {
+        name: "{{ class }}",
+        stats: [
+          {% assign levels = site.data.classes | where: "Name", class %}
+          {% for level in levels %}
+            {
+              level: "{{ level.Level }}",
+              require: "{{ level.Require }}",
+              buff: "{{ level.Buff }}"
+            },
+          {% endfor %}
+        ]
       },
       {% endfor %}
     ],
     chess: [
       new Array(8), new Array(8), new Array(8), new Array(8)
-    ]
+    ],
+    onlyActive: true
   }
 })
 </script>

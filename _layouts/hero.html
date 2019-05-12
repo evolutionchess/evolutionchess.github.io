@@ -8,7 +8,7 @@ layout: default
       <div class="col-12 col-md-6">
         <header class="post-header">
           <h1 class="post-title">{{ page.title | escape }}</h1>
-          <h3><span style="color: blue">{{ page.spec }}</span> - <span style="color: green">{{page.class}}</span></h3>
+          <h3><span style="color: blue">{{ page.spec | join: " - " }}</span> - <span style="color: green">{{ page.class | join: " - " }}</span></h3>
         </header>
         <div>
           <div>

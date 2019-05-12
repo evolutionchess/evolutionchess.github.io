@@ -1,0 +1,19 @@
+Name,Level,Require,Buff
+Specialist,1,2,All allies have +5% lifesteal
+Specialist,2,4,All allies have an additional +5% lifesteal
+Specialist,3,6,All allies have an additional +10% lifesteal
+Guardian,1,2,All friendly guardian have +250 shield
+Guardian,2,4,All friendly guardian have an additional +350 shield
+Blaster,1,3,All enemies have -20 ability damage resistance
+Blaster,2,6,All enemies have an additional -30 ability damage resistance
+Assassin,1,3,All friendly assassin have 10% chance to critical hit for 450% damage
+Assassin,2,6,All friendly assassin have an additional 10% chance to critical hit for 450% damage
+Supporter,1,2,"Upon dying, all allies restore 200 health and 10 energy"
+Supporter,2,4,"Upon dying, all allies restore 300 health and 10 energy"
+Longshot,1,3,All friendly Longshots have +4 armor penetration
+Longshot,2,6,All friendly Longshots have an additional +8 armor penetration
+Siegebreaker,1,3,"All allies have +25% damage against enemy Mechs, Air Forces, Puppets, Krakens, Insectoids and Immortals"
+Siegebreaker,2,6,"All allies have an additional +25% damage against enemy Mechs, Air Forces, Puppets, Krakens, Insectoids and Immortals"
+Summoner,1,3,All allies have +8% energy generated from dealing damage
+Vanguard,1,3,All friendly Vanguards have +6 armor
+Vanguard,2,6,All friendly Vanguards have an additional +8 armor

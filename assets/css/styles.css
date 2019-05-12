@@ -66,6 +66,20 @@ footer .svg-icon {
 #summary .square {
     float: none;
     display: inline-block;
-    width: 6.25%;
-    padding-bottom: 6.25%;
+}
+#summary .col-6 {
+    float: left;
+    cursor: pointer;
+}
+#summary .inspect {
+    position: absolute;
+}
+#buff #spec .active {
+    color: blue;
+}
+#buff #class .active {
+    color: green;
+}
+#buff .hidden {
+    display: none;
 }
