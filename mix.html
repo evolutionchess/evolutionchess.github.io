@@ -9,20 +9,55 @@ description: Build and test your own combo of army to see how many buff effects 
 {% assign specs = site.data.specs | map: "Name" | uniq %}
 {% assign classes = site.data.classes | map: "Name" | uniq %}
 {% raw %}
+<p>Click or drag in a hero to put it in your army. Click or drag out a hero from your army to recall it.</p>
 <div id="mix">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-4">
-      <div
-        v-for="(hero, i) in heroes"
-        v-if="!hero.inchess"
-        :v-key="i"
-        class="square"
-        @click="pick(i)"
-        @dblclick="view(hero)"
-        draggable="true"
-        @dragstart="dragstart(i, $event)"
-        :style="'background-image: ' + background(hero.name)"
-        :title="title(hero)"></div>
+      <div v-if="groupBy == 'name'">
+        <div
+          v-for="hero in heroes"
+          v-if="!hero.inchess"
+          :v-key="hero.id"
+          class="square"
+          @click="pick(hero.id)"
+          draggable="true"
+          @dragstart="dragstart(hero.id, $event)"
+          :style="'background-image: ' + background(hero.name)"
+          :title="title(hero)"></div>
+      </div>
+      <div v-if="groupBy == 'spec'">
+        <div v-for="s in specs">
+          <div
+            v-for="hero in heroes"
+            v-if="!hero.inchess && hero.spec == s.name"
+            :v-key="hero.id"
+            class="square"
+            @click="pick(hero.id)"
+            draggable="true"
+            @dragstart="dragstart(hero.id, $event)"
+            :style="'background-image: ' + background(hero.name)"
+            :title="title(hero)"></div>
+        </div>
+      </div>
+      <div v-if="groupBy == 'class'">
+        <div v-for="c in classes">
+          <div
+            v-for="hero in heroes"
+            v-if="!hero.inchess && hero.class == c.name"
+            :v-key="hero.id"
+            class="square"
+            @click="pick(hero.id)"
+            draggable="true"
+            @dragstart="dragstart(hero.id, $event)"
+            :style="'background-image: ' + background(hero.name)"
+            :title="title(hero)"></div>
+        </div>
+      </div>
+      <div style="clear: both">
+        <input type="radio" v-model="groupBy" value="name" id="groupByName"><label for="groupByName">Group by name</label><br/>
+        <input type="radio" v-model="groupBy" value="spec" id="groupBySpec"><label for="groupBySpec">Group by spec</label><br/>
+        <input type="radio" v-model="groupBy" value="class" id="groupByClass"><label for="groupByClass">Group by class</label><br/>
+      </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <div v-for="i in 4">
@@ -48,7 +83,7 @@ description: Build and test your own combo of army to see how many buff effects 
               v-for="(hero, i) in s.heroes"
               :v-key="i"
               class="square"
-              @dblclick="view(hero)"
+              @click="view(hero)"
               :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(s) ? '1' : '0.5')"
               :title="title(hero)"></div>
           </div>
@@ -60,16 +95,16 @@ description: Build and test your own combo of army to see how many buff effects 
               v-for="(hero, i) in c.heroes"
               :v-key="i"
               class="square"
-              @dblclick="view(hero)"
+              @click="view(hero)"
               :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(c) ? '1' : '0.5')"
               :title="title(hero)"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-md-12 col-lg-4">
       <h3>Your buffs</h3>
-      <input type="checkbox" v-model="onlyActive"> Only show activated buff
+      <input type="checkbox" v-model="onlyActive" id="onlyActive"><label for="onlyActive">Only show activated buff</label>
       <div id="buff" class="row">
         <div id="spec" class="col-6">
           <div v-for="s in specs">
@@ -115,7 +150,44 @@ var app = new Vue({
         .sort((a, b) => b.heroes.length - a.heroes.length);
     }
   },
+  watch: {
+    inchess: function(val) {
+      this.specs.forEach(buff => {
+        buff.active = false;
+        buff.stats.forEach(lv => {
+          lv.active = false;
+        })
+      })
+      this.classes.forEach(buff => {
+        buff.active = false;
+        buff.stats.forEach(lv => {
+          lv.active = false;
+        })
+      })
+    }
+  },
   methods: {
+    pick: function(index) {
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 8; j++) {
+          if (this.chess[i][j] == null) {
+            this.chess[i][j] = index;
+            this.heroes[index].inchess = true;
+            return;
+          }
+        }
+      }
+    },
+    recall: function(x, y) {
+      let hero = this.heroes[this.chess[y-1][x-1]];
+      if (hero) {
+        hero.inchess = false;
+      }
+      this.chess[y-1][x-1] = null;
+    },
+    view: function(hero) {
+      window.open('/heroes/' + hero.name.replace(' ', '-').toLowerCase(), '_blank').focus();
+    },
     dragstart: function(i, e) {
       e.dataTransfer.setData('index', i)
     },
@@ -149,15 +221,8 @@ var app = new Vue({
     title: function(hero) {
       return hero.name + ' - ' + hero.spec + ' - ' + hero.class;
     },
-    resetBuff: function(buff) {
-      buff.info.active = false;
-      buff.info.stats.forEach(lv => {
-        lv.active = false;
-      })
-    },
     activeNumber: function(buff) {
       let count = buff.heroes.length;
-      this.resetBuff(buff);
       if (buff.info.name == "Walker" && count > 1) {
         return 0;
       }
@@ -181,33 +246,13 @@ var app = new Vue({
         return 'hidden';
       }
       return '';
-    },
-    pick: function(index) {
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 8; j++) {
-          if (!this.chess[i][j]) {
-            this.chess[i][j] = index;
-            this.heroes[index].inchess = true;
-            return;
-          }
-        }
-      }
-    },
-    recall: function(x, y) {
-      let hero = this.heroes[this.chess[y-1][x-1]];
-      if (hero) {
-        hero.inchess = false;
-      }
-      this.chess[y-1][x-1] = null;
-    },
-    view: function(hero) {
-      window.open('/heroes/' + hero.name.replace(' ', '-').toLowerCase(), '_blank').focus();
     }
   },
   data: {
     heroes: [
       {% for hero in heroes %}
       {
+        id: {{ forloop.index0 }},
         name: "{{ hero.title }}",
         spec: "{{ hero.spec | join: ' - ' }}",
         class: "{{ hero.class | join: ' - '}}",
@@ -252,6 +297,7 @@ var app = new Vue({
     chess: [
       new Array(8), new Array(8), new Array(8), new Array(8)
     ],
+    groupBy: 'name',
     onlyActive: true
   }
 })

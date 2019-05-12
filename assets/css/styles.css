@@ -51,7 +51,7 @@ footer .svg-icon {
 }
 #mix .square {
     position: relative;
-    float: left;
+    display: inline-block;
     width: 12.5%;
     padding-bottom: 12.5%;
     border-radius: 100%;
@@ -63,16 +63,9 @@ footer .svg-icon {
     border: 1px solid white;
     border-radius: 10px;
 }
-#summary .square {
-    float: none;
-    display: inline-block;
-}
 #summary .col-6 {
     float: left;
     cursor: pointer;
-}
-#summary .inspect {
-    position: absolute;
 }
 #buff #spec .active {
     color: blue;
