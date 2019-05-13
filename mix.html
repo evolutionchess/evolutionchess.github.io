@@ -27,6 +27,7 @@ description: Build and test your own combo of army to see how many buff effects 
       </div>
       <div v-if="groupBy == 'spec'">
         <div v-for="s in specs">
+          <div><b>{{ s.name }}</b></div>
           <div
             v-for="hero in heroes"
             v-if="!hero.inchess && hero.spec == s.name"
@@ -41,6 +42,7 @@ description: Build and test your own combo of army to see how many buff effects 
       </div>
       <div v-if="groupBy == 'class'">
         <div v-for="c in classes">
+          <div><b>{{ c.name }}</b></div>
           <div
             v-for="hero in heroes"
             v-if="!hero.inchess && hero.class == c.name"
