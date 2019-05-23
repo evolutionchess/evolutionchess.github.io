@@ -8,6 +8,8 @@ categories: guide
 The first 3 rounds are obviously easy, but choosing which heroes to get ready for the 4th battle is very important. If you won 4th and the following rounds, it can greatly impact your mid game performance because of snowball effect.
 
 #### Medic Center
+![Medic Center](/assets/img/posts/2019-05-13-medic-center.jpg)
+
 This is the most commonly and the safest way to get a win for the 4th battle. Medic's First Aid ability especially strong on early game as it would last so long and 300 HP in the opening is too much. If you put your Medic properly enough that it can heal 2 others heroes, you would definitely win this battle. 
 
 #### Marauder Blaster
@@ -25,12 +27,18 @@ This is the most tactical phase of the game. You have a lot of decision to make 
 Immortal is a perfect tanking unit that it could swallow damage even it's death. However, the Level 3 Immortal Synergy is wasteful because it wouldn't last to 6s before dying. So you should only have 2 immortals and then focus on the summoner. This is a very strong composition but it could be countered easily by the assassin who can one (or more) shot on your vulnerable Summoners.
 
 #### Insectoid Rush
+![Insectoid Rush](/assets/img/posts/2019-05-13-insectoid-rush.jpg)
+
 The Insectoid used to be ridiculously strong since the game first release. It synergy can make the army full of 3 stars heroes before 30 minutes of the game. However, these Insectoid heroes is not too strong and their synergy only helpful in the ready phase and can be considering useless in combat phase. However it is also a very fun strategy that you should try.
 
 #### Beast Party
+![Beast Party](/assets/img/posts/2019-05-13-beast-party.png)
+
 The Beast and Marine are the 2 specs that have the most heroes of the game. So having full of them is not too hard. Beast Synergy also work so well with other class based Synergy such as Assassin or Vanguard, which also taken by Beast heroes. Imagine you have 6 or 7 heroes with crazy attack speed, 450% critical damage and a bunch of armor to take them down. This army could be considered invincible! 
 
 #### Marine Fury
+![Marine Fury](/assets/img/posts/2019-05-13-marine-fury.jpg)
+
 Just like the Beast Party, but Marine Fury requires more step to make it undefeatable. The Marines cover so many classes in the game so that you can't just put them in the front line and smashing the enemy. Furthermore, the marine main class is Longshot, which can be strong but week at the sametime. You have to be wisely put them in a position that it can fully empowered their skill, and choosing a suitable tanking hero to take care of the damages, such as Mech or Immortal would be a solution.
 
 #### Remember to get 1 Walker in your army
