@@ -8,7 +8,7 @@ title: "Arena Of Evolution: Red Tides Guide"
 <h2>Guides</h2>
 <ul class="post-list">
     {%- for post in site.posts -%}
-    <li>
+    <li class="{{ post.class }}">
     <a class="post-link" href="{{ post.url | relative_url }}">
     {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
     <span class="post-meta">{{ post.date | date: date_format }}</span>

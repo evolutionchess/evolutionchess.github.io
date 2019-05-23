@@ -57,6 +57,9 @@ footer .svg-icon {
 .post-list li {
     margin-bottom: 20px;
 }
+.post-list li.hot a {
+    font-size: 30px;
+}
 .feature-link a, .post-list li a {
     text-align: center;
     box-shadow: 1px 1px 5px grey;
