@@ -24,8 +24,9 @@ menu: Heroes
                     <td>
                         {% for page in hero_pages %}
                         {% if page.spec contains spec and page.class contains class %}
-                            <a href="{{page.url}}" title="{{page.title}}">
-                            <img src="/assets/img/heroes/avatar/{{page.title}}.png"/>
+                            <a href="{{page.url}}" title="{{spec}} - {{class}}">
+                                <img src="/assets/img/heroes/avatar/{{page.title}}.png"/>
+                                <div>{{page.title}}</div>
                             </a>
                         {% endif %}
                         {% endfor %}

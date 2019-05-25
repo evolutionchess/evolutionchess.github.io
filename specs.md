@@ -7,7 +7,7 @@ description: "Beast, Walker, Puppet, Raptor, Immortal, Mech, Panda, Psyker, Mari
 {% assign hero_pages = site.pages | where: "layout", "hero" %}
 {% assign specs = site.data.specs | map: "Name" | uniq %}
 {% for spec in specs %}
-## {{ spec }}
+<h2 id="{{ spec | replace: " ", "-" }}">{{ spec }}</h2>
 <div class="heroes">
     {% for page in hero_pages %}
         {% if page.spec contains spec %}

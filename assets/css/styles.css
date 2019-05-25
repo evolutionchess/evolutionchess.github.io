@@ -26,6 +26,7 @@ footer .svg-icon {
 #heroes table {
     margin-bottom: 0px;
     font-size: 14px;
+    text-align: center;
 }
 @media screen and (min-width:992px) {
     #heroes table {

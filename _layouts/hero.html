@@ -8,7 +8,15 @@ layout: default
       <div class="col-12 col-md-6">
         <header class="post-header">
           <h1 class="post-title">{{ page.title | escape }}</h1>
-          <h3><span style="color: blue">{{ page.spec | join: " - " }}</span> - <span style="color: green">{{ page.class | join: " - " }}</span></h3>
+          <h3>
+            {% for spec in page.spec %}
+              <a href="/specs.html#{{ spec | replace: " ", "-" }}" id="{{ spec | replace: " ", "-" }}" style="color: blue">{{ spec }}</a>
+            {% endfor %}
+            -
+            {% for class in page.class %}
+              <a href="/classes.html#{{ class | replace: " ", "-" }}" id="{{ class | replace: " ", "-" }}" style="color: green">{{ class }}</a>
+            {% endfor %}
+          </h3>
         </header>
         <div>
           <div>
@@ -93,10 +101,12 @@ layout: default
       </div>
     </div>
   </div>
-
 </article>
 
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
 <script>
+  // Level slider
   function show(id) {
     [1, 2, 3].forEach(i => {
       let display = 'none';
@@ -108,4 +118,28 @@ layout: default
     });
   }
   show(1);
+
+  // Spec, class tooltip
+  {% for spec in page.spec %}
+  {% assign info = site.data.specs | where: "Name", spec %}
+  tippy('#{{ spec | replace: " ", "-" }}', {
+    content: `<h3>{{ spec }}</h3>
+      {% for lv in info %}
+        <div>({{ lv.Require }}) {{ lv.Buff }}</div>
+      {% endfor %}
+      <small><i>Click to view all {{ spec }} heroes</i></small>
+    `,
+  })
+  {% endfor %}
+  {% for class in page.class %}
+  {% assign info = site.data.classes | where: "Name", class %}
+  tippy('#{{ class | replace: " ", "-" }}', {
+    content: `<h3>{{ class }}</h3>
+      {% for lv in info %}
+        <div>({{ lv.Require }}) {{ lv.Buff }}</div>
+      {% endfor %}
+      <small><i>Click to view all {{ class }} heroes</i></small>
+    `,
+  })
+  {% endfor %}
 </script>

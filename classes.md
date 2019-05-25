@@ -7,7 +7,7 @@ description: "Vanguard, Longshot, Siegebreaker, Guardian, Specialist, Supporter,
 {% assign hero_pages = site.pages | where: "layout", "hero" %}
 {% assign classes = site.data.classes | map: "Name" | uniq %}
 {% for class in classes %}
-## {{ class }}
+<h2 id="{{ class | replace: " ", "-" }}">{{ class }}</h2>
 <div class="heroes">
     {% for page in hero_pages %}
         {% if page.class contains class %}
