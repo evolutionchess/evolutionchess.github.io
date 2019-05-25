@@ -5,9 +5,12 @@ spec: Air Force
 class: Assassin
 skill:
     name: Cloak
-    description: Motus cloaks itself, becoming immune to detection. Mortus gains health regen bonus while cloaked.
+    description: Motus cloaks itself, becoming immune to detection. Mortus gains health regen and attack speed bonus while cloaked.
     stats:
-        Cooldown: 11s
-        Duration: 4/4/4
+        Cooldown: 16s
+        Duration: 6/6/6
         Health Gained per Sec: 15/60/180
+        Bonus Attack Speed: 30%/40%/50%
 ---
+### Tips
+Cooldown starts the moment his skill is launched, which means the 6s Cloak duration is included in the CD.
