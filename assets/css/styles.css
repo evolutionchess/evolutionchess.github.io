@@ -69,9 +69,13 @@ footer .svg-icon {
 }
 .feature-link a, .post-list li a {
     text-align: center;
-    box-shadow: 1px 1px 5px grey;
+    border: 1px solid #e8e8e8;
     border-radius: 10px;
     padding: 10px;
+}
+.feature-link a:hover , .post-list li a:hover {
+    border: none;
+    box-shadow: 1px 1px 5px grey;
 }
 #mix .square {
     position: relative;

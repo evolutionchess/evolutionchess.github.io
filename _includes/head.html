@@ -10,6 +10,7 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
+  {%- if page.adsense != false -%}
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -17,6 +18,7 @@
       enable_page_level_ads: true
     });
   </script>
+  {%- endif -%}
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129062857-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
