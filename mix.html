@@ -4,7 +4,9 @@ title: Mix your army
 menu: Mix
 description: Build and test your own combo of army to see how many buff effects you got when putting this army in to battle.
 ---
+<link rel="stylesheet" href="/assets/css/tooltip.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/v-tooltip"></script>
 {% assign heroes = site.pages | where: "layout", "hero" %}
 {% assign specs = site.data.specs | map: "Name" | uniq %}
 {% assign classes = site.data.classes | map: "Name" | uniq %}
@@ -23,7 +25,7 @@ description: Build and test your own combo of army to see how many buff effects 
           draggable="true"
           @dragstart="dragstart(hero.id, $event)"
           :style="'background-image: ' + background(hero.name)"
-          :title="title(hero)"></div>
+          v-tooltip="tooltip(hero)"></div>
       </div>
       <div v-if="groupBy == 'spec'">
         <div v-for="s in specs">
@@ -37,7 +39,7 @@ description: Build and test your own combo of army to see how many buff effects 
             draggable="true"
             @dragstart="dragstart(hero.id, $event)"
             :style="'background-image: ' + background(hero.name)"
-            :title="title(hero)"></div>
+            v-tooltip="tooltip(hero)"></div>
         </div>
       </div>
       <div v-if="groupBy == 'class'">
@@ -52,7 +54,7 @@ description: Build and test your own combo of army to see how many buff effects 
             draggable="true"
             @dragstart="dragstart(hero.id, $event)"
             :style="'background-image: ' + background(hero.name)"
-            :title="title(hero)"></div>
+            v-tooltip="tooltip(hero)"></div>
         </div>
       </div>
       <div style="clear: both">
@@ -73,33 +75,38 @@ description: Build and test your own combo of army to see how many buff effects 
           @dragleave="dragleave"
           @drop="drop(j, i, $event)"
           :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''"
-          :title="heroes[chess[i-1][j-1]] ? title(heroes[chess[i-1][j-1]]) : ''">
+          v-tooltip="heroes[chess[i-1][j-1]] ? tooltip(heroes[chess[i-1][j-1]]) : ''">
         </div>
       </div>
       <div id="summary">
-        <h3><span :style="inchess.length > 10 ? 'color: red' : ''">{{ inchess.length }}</span>/10 hero{{ inchess.length > 1 ? 'es' : ''}}</h3>
-        <div class="col-6">
-          <div v-for="s in inspecs">
-            <b :style="'color: blue; opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')">{{ s.info.name }}</b>
-            <div
-              v-for="(hero, i) in s.heroes"
-              :v-key="i"
-              class="square"
-              @click="view(hero)"
-              :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(s) ? '1' : '0.5')"
-              :title="title(hero)"></div>
-          </div>
+        <div class="row">
+          <div class="col-6"><b><span :style="inchess.length > 10 ? 'color: red' : ''">{{ inchess.length }}</span>/10</b> hero{{ inchess.length > 1 ? 'es' : ''}}</div>
+          <div class="col-6" v-tooltip="sumaryTooltip()">Total DPS: <b>{{ sumary.dps }}</b></div>
         </div>
-        <div class="col-6">
-          <div v-for="(c, key) in inclasses">
-            <b :style="'color: green; opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')">{{ c.info.name }}</b>
-            <div
-              v-for="(hero, i) in c.heroes"
-              :v-key="i"
-              class="square"
-              @click="view(hero)"
-              :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(c) ? '1' : '0.5')"
-              :title="title(hero)"></div>
+        <div class="row">
+          <div class="col-6">
+            <div v-for="s in inspecs">
+              <b v-tooltip="buffTooltip(s)" class="blue" :style="'opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')">{{ s.info.name }}</b>
+              <div
+                v-for="(hero, i) in s.heroes"
+                :v-key="i"
+                class="square"
+                @click="view(hero)"
+                :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(s) ? '1' : '0.5')"
+                v-tooltip="tooltip(hero)"></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div v-for="(c, key) in inclasses">
+              <b v-tooltip="buffTooltip(c)" class="green" :style="'opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')">{{ c.info.name }}</b>
+              <div
+                v-for="(hero, i) in c.heroes"
+                :v-key="i"
+                class="square"
+                @click="view(hero)"
+                :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(c) ? '1' : '0.5')"
+                v-tooltip="tooltip(hero)"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -127,11 +134,28 @@ description: Build and test your own combo of army to see how many buff effects 
 {% endraw %}
 
 <script>
+Vue.use(VTooltip);
 var app = new Vue({
   el: '#mix',
   computed: {
     inchess: function() {
       return this.heroes.filter(h => h.inchess)
+    },
+    sumary: function() {
+      let sumary = {};
+      sumary.coin = this.inchess.reduce((s, e) => s + e.stat.coin, 0);
+      sumary.hp = this.inchess.reduce((s, e) => s + e.stat.health, 0);
+      sumary.armor = this.inchess.reduce((s, e) => s + e.stat.armor, 0);
+      sumary.minAtk = this.inchess.reduce((s, e) => s + e.stat.minAtk, 0);
+      sumary.maxAtk = this.inchess.reduce((s, e) => s + e.stat.maxAtk, 0);
+      sumary.damage = sumary.minAtk + '-' + sumary.maxAtk;
+      sumary.speed = this.inchess.reduce((s, e) => s + Number(e.stat.speed.substring(0, e.stat.speed.length - 1)), 0) / this.inchess.length;
+      sumary.range = this.inchess.reduce((s, e) => s + e.stat.range, 0) / this.inchess.length;
+      sumary.dps = (sumary.minAtk + sumary.maxAtk)/2/sumary.speed;
+      sumary.speed = this.round(sumary.speed);
+      sumary.range = this.round(sumary.range);
+      sumary.dps = this.round(sumary.dps);
+      return sumary;
     },
     inclasses: function() {
       return this.classes
@@ -201,16 +225,16 @@ var app = new Vue({
     dragover: function (e) {
       e.preventDefault();
       if (e.target.style.backgroundImage == '') {
-        e.target.style.backgroundColor = '#34a853';
+        e.target.style.backgroundColor = '#fbbc05';
       }
     },
     dragleave: function (e) {
       if (e.target.style.backgroundImage == '') {
-        e.target.style.backgroundColor = '#fbbc05';
+        e.target.style.backgroundColor = 'gray';
       }
     },
     drop: function (x, y, e) {
-      e.target.style.backgroundColor = '#fbbc05';
+      e.target.style.backgroundColor = 'gray';
       let i = e.dataTransfer.getData('index');
       if (!this.chess[y-1][x-1]) {
         this.chess[y-1][x-1] = i;
@@ -220,8 +244,37 @@ var app = new Vue({
     background: function(name) {
       return 'url(\'/assets/img/heroes/avatar/' + name + '.png\')'
     },
-    title: function(hero) {
-      return hero.name + ' - ' + hero.spec + ' - ' + hero.class;
+    tooltip: function(hero) {
+      return `<div><b>${hero.name}</b></div>
+        <small>
+          <div><i>${hero.spec} - ${hero.class}</i></div>
+          <div><b>Cost:</b> ${hero.stat.coin} ${hero.stat.coin > 1 ? 'coins' : 'coin'}</div>
+          <div><b>HP:</b> ${hero.stat.health}</div>
+          <div><b>Armor:</b> ${hero.stat.armor}</div>
+          <div><b>Damage:</b> ${hero.stat.minAtk}-${hero.stat.maxAtk}</div>
+          <div><b>Attack Speed:</b> ${hero.stat.speed}</div>
+          <div><b>Attack Range:</b> ${hero.stat.range}</div>
+        </small>
+      `;
+    },
+    buffTooltip: function(buff) {
+      return `<div><b>${buff.info.name}</b></div>
+        <small>
+          ${buff.info.stats.map(e => `<div><b>(${e.require})</b> ${e.buff}</div>`).join('')}
+        </small>
+      `;
+    },
+    sumaryTooltip: function() {
+      return `
+        <small>
+          <div><b>Total Cost:</b> ${this.sumary.coin}</div>
+          <div><b>Total HP:</b> ${this.sumary.hp}</div>
+          <div><b>Total Armor:</b> ${this.sumary.armor}</div>
+          <div><b>Total Damage:</b> ${this.sumary.damage}</div>
+          <div><b>Average Attack Speed:</b> ${this.sumary.speed}s</div>
+          <div><b>Average Attack Range:</b> ${this.sumary.range}</div>
+        </small>
+      `;
     },
     activeNumber: function(buff) {
       let count = buff.heroes.length;
@@ -248,6 +301,13 @@ var app = new Vue({
         return 'hidden';
       }
       return '';
+    },
+    round: function(x) {
+      let res = Math.round(x*100)/100;
+      if (Number.isNaN(res)) {
+        res = 0;
+      }
+      return res;
     }
   },
   data: {
@@ -257,7 +317,17 @@ var app = new Vue({
         id: {{ forloop.index0 }},
         name: "{{ hero.title }}",
         spec: "{{ hero.spec | join: ' - ' }}",
-        class: "{{ hero.class | join: ' - '}}",
+        class: "{{ hero.class | join: ' - ' }}",
+        stat: {
+          {% assign stat = site.data.stats | where: "Name", hero.title | first %}
+          coin: {{ stat.Coin }},
+          minAtk: {{ stat["Minimal Attack"] }},
+          maxAtk: {{ stat["Maximum Attack"] }},
+          health: {{ stat.Health }},
+          armor: {{ stat.Armor }},
+          range: {{ stat["Attack Range"] }},
+          speed: "{{ stat["Attack Speed"] }}"
+        },
         inchess: false
       },
       {% endfor %}

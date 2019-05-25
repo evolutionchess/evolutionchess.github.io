@@ -10,11 +10,11 @@ layout: default
           <h1 class="post-title">{{ page.title | escape }}</h1>
           <h3>
             {% for spec in page.spec %}
-              <a href="/specs.html#{{ spec | replace: " ", "-" }}" id="{{ spec | replace: " ", "-" }}" style="color: blue">{{ spec }}</a>
+              <span id="{{ spec | replace: " ", "-" }}" style="color: blue; cursor: pointer;">{{ spec }}</span>
             {% endfor %}
             -
             {% for class in page.class %}
-              <a href="/classes.html#{{ class | replace: " ", "-" }}" id="{{ class | replace: " ", "-" }}" style="color: green">{{ class }}</a>
+              <span id="{{ class | replace: " ", "-" }}" style="color: green; cursor: pointer;">{{ class }}</span>
             {% endfor %}
           </h3>
         </header>
@@ -127,8 +127,9 @@ layout: default
       {% for lv in info %}
         <div>({{ lv.Require }}) {{ lv.Buff }}</div>
       {% endfor %}
-      <small><i>Click to view all {{ spec }} heroes</i></small>
+      <a href="/specs.html#{{ spec | replace: " ", "-" }}"><b>Click here to view all {{ spec }} heroes</b></a>
     `,
+    interactive: true
   })
   {% endfor %}
   {% for class in page.class %}
@@ -138,8 +139,9 @@ layout: default
       {% for lv in info %}
         <div>({{ lv.Require }}) {{ lv.Buff }}</div>
       {% endfor %}
-      <small><i>Click to view all {{ class }} heroes</i></small>
+      <a href="/classes.html#{{ class | replace: " ", "-" }}"><b>Click here to view all {{ class }} heroes</b></a>
     `,
+    interactive: true
   })
   {% endfor %}
 </script>

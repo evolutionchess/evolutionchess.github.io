@@ -5,6 +5,12 @@ img {
 footer .svg-icon {
     padding: 0;
 }
+.green {
+    color: #34a853;
+}
+.blue {
+    color: #4285f4;
+}
 .slider {
     position: relative;
 }
@@ -36,11 +42,11 @@ footer .svg-icon {
 }
 .stripped {
     background: repeating-linear-gradient(
-        45deg,
-        #606dbc,
-        #606dbc 10px,
-        #465298 10px,
-        #465298 20px
+    45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
     );
     color: white !important;
 }
@@ -77,7 +83,7 @@ footer .svg-icon {
     cursor: pointer;
 }
 #mix .blank {
-    background-color: #fbbc05;
+    background-color: gray;
     border: 1px solid white;
     border-radius: 10px;
 }
@@ -86,11 +92,15 @@ footer .svg-icon {
     cursor: pointer;
 }
 #buff #spec .active {
-    color: blue;
+    color: #4285f4;
 }
 #buff #class .active {
-    color: green;
+    color: #34a853;
 }
 #buff .hidden {
     display: none;
+}
+.tippy-content a {
+    color: white;
+    text-decoration: underline;
 }
