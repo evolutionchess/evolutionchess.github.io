@@ -254,6 +254,7 @@ var app = new Vue({
           <div><b>Damage:</b> ${hero.stat.minAtk}-${hero.stat.maxAtk}</div>
           <div><b>Attack Speed:</b> ${hero.stat.speed}</div>
           <div><b>Attack Range:</b> ${hero.stat.range}</div>
+          <div style="max-width: 200px"><b>${hero.skill.name}:</b> ${hero.skill.description}</div>
         </small>
       `;
     },
@@ -318,6 +319,10 @@ var app = new Vue({
         name: "{{ hero.title }}",
         spec: "{{ hero.spec | join: ' - ' }}",
         class: "{{ hero.class | join: ' - ' }}",
+        skill: {
+          name: "{{ hero.skill.name }}",
+          description: "{{ hero.skill.description | escape }}"
+        },
         stat: {
           {% assign stat = site.data.stats | where: "Name", hero.title | first %}
           coin: {{ stat.Coin }},
