@@ -11,6 +11,12 @@
       <div class="container">
         <div id="google_translate_element"></div>
         {{ content }}
+        {%- if page.comment != false -%}
+          <div id="fb-root"></div>
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+          <div id="comments">Comment on <b>{{ page.title }}</b></div>
+          <div class="fb-comments" data-href="{{ site.url }}{{ page.url }}" data-width="100%" data-numposts="5"></div>
+        {%- endif -%}
       </div>
     </main>
 

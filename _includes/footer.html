@@ -14,8 +14,8 @@
         <ul class="contact-list">
           {%- if site.download_link -%}<li><a target="_blank" href="{{ site.download_link }}" title="Download Now">Download Now</a></li>{%- endif -%}
           {%- for menu in site.menus -%}
-          {%- assign page = site.pages | where: "menu", menu | first -%}
-          <li><a class="page-link" href="{{ page.url | relative_url }}">{{ menu }}</a></li>
+          {%- assign nav = site.pages | where: "menu", menu | first -%}
+          <li><a class="page-link" href="{{ nav.url | relative_url }}">{{ menu }}</a></li>
           {%- endfor -%}
         </ul>
       </div>
