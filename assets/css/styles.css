@@ -49,6 +49,7 @@ footer .svg-icon {
     #465298 20px
     );
     color: white !important;
+    border: none !important;
 }
 .feature-link {
     display: table;

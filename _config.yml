@@ -25,6 +25,7 @@ repository_link: "https://github.com/evolutionchess/evolutionchess.github.io"
 menus:
   - Mix
   - Heroes
+  - Tier
   - Spec
   - Class
 
