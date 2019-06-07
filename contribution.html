@@ -1,0 +1,65 @@
+---
+layout: page
+title: "Contribution to Arena of Evolution: Red Tides Strategy"
+description: Have found a new strategy and want to share with others? Thank you, we need your contribution!
+comment: no
+---
+<h2>Can you use Git?</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="feature-link"><a id="issue-toggle" href="#" onclick="showissue()">No. I'm a Human!</a></div>
+    </div>
+    <div class="col-md-6">
+        <div class="feature-link"><a id="git-toggle" href="#" onclick="showgit()">Yes. I'm also a Developer!</a></div>
+    </div>
+</div>
+<div id="issue" class="hidden">
+    <h2>It's very easy</h2>
+    <p>You just have to follow these simple steps to get your post appear on the site!</p>
+    <div>
+        <h4>Step 1: Go to this <a href="https://github.com/evolutionchess/evolutionchess.github.io/issues" target="_blank" title="Issues">link</a> and create an issue</h4>
+        <img src="assets/img/pages/contribution/issue-1.png">
+        <h4>Step 2: Set the label</h4>
+        <img src="assets/img/pages/contribution/issue-2.png">
+        <h4>Step 3: Write your content</h4>
+        <img src="assets/img/pages/contribution/issue-3.png">
+        <h4>Step 4: Submit!</h4>
+        <img src="assets/img/pages/contribution/issue-4.png">
+    </div>
+</div>
+<div id="git" class="hidden">
+    <p>Arena of Evolution Strategy Guide is a Jekyll website hosted on Github. Here is the repository link: <a href="{{ site.repository_link }}" target="_blank">evolutionchess.github.io</a></p>
+    <h2>You don't have to submit an issue</h2>
+    <p>Issues is not a place for sharing content, we sorry for it! But sadly not everyone can use Jekyll and Git so <a href="#" onclick="showissue()">we borrow Issues as a place to post contribution</a>. Feel free to share your content via Issue, or create a new post directly in the repository's source code (it can be a HTML or a Markdown file inside <a href="https://github.com/evolutionchess/evolutionchess.github.io/tree/master/_posts" target="_blank">_posts folder</a>) and make a pull request. We will take a review and your post will be published as soon as we saw it.</p>
+    <p>If you need any special permission, tell us your Github account and we will grant it for you!</p>
+    <h2>Feel free to contribute anything, from content to source code!</h2>
+    <p>Our website have weird looking, it's true. Feel free to be our designer, write some css and make a pull request. We love having your contribution!</p>
+    <p>Our stats is outdated, sorry about that! Feel free to update the stats, they are stored as csv files inside <a href="https://github.com/evolutionchess/evolutionchess.github.io/tree/master/_data" target="_blank">_data folder</a>. You can send us a pull request after you finish the update or tell us to grant you write permisson and you can push the code directly into the master branch.</p>
+</div>
+
+<script>
+issue = {
+    content: document.getElementById('issue'),
+    toggle: document.getElementById('issue-toggle')
+}
+git = {
+    content: document.getElementById('git'),
+    toggle: document.getElementById('git-toggle')
+}
+function hideall() {
+    issue.content.classList.add('hidden');
+    issue.toggle.classList.remove('stripped');
+    git.content.classList.add('hidden');
+    git.toggle.classList.remove('stripped');
+}
+function showissue() {
+    hideall();
+    issue.content.classList.remove('hidden');
+    issue.toggle.classList.add('stripped');
+}
+function showgit() {
+    hideall();
+    git.content.classList.remove('hidden');
+    git.toggle.classList.add('stripped');
+}
+</script>

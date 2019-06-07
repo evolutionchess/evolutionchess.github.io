@@ -105,7 +105,7 @@ footer .svg-icon {
 #buff #class .active {
     color: #34a853;
 }
-#buff .hidden {
+.hidden {
     display: none;
 }
 .tippy-content a {

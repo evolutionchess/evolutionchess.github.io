@@ -8,15 +8,12 @@
     <div class="row">
       <div class="col-12 col-md-8">
         <small>&copy; This site is NOT an official document for Arena of Evolution: Red Tides, it's just a fandom wiki created by an anonymous player.</small>
-        <small>If you want to contribute to this project, visit the repository on <a target="_blank" href="{{ site.repository_link }}">Github</a></small>
+        <small>If you want to contribute to this project, click <a href="/contribution.html">here</a></small>
       </div>
       <div class="col-12 col-md-4">
         <ul class="contact-list">
           {%- if site.download_link -%}<li><a target="_blank" href="{{ site.download_link }}" title="Download Now">Download Now</a></li>{%- endif -%}
-          {%- for menu in site.menus -%}
-          {%- assign nav = site.pages | where: "menu", menu | first -%}
-          <li><a class="page-link" href="{{ nav.url | relative_url }}">{{ menu }}</a></li>
-          {%- endfor -%}
+          <li><a class="page-link" href="/contribution.html">Contribute</a></li>
         </ul>
       </div>
     </div>
