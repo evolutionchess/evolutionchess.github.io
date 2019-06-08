@@ -1,6 +1,33 @@
+body {
+    background-color: #212121;
+    background-image: url(/assets/img/shared/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Roboto Slab', serif;
+}
+main {
+    background: white;
+    color: #212121;
+}
+a, a:visited, .site-nav .page-link, .site-title, .site-title:visited {
+    color: #fbbc05;
+}
+a:hover {
+    text-decoration: none;
+    color: #f9a825;
+}
 img {
     max-width: 100%;
     height: auto;
+}
+.site-nav {
+    line-height: 100px;
+}
+.site-header {
+    border: none;
+    box-shadow: 1px 1px 5px grey;
 }
 footer .svg-icon {
     padding: 0;
@@ -43,12 +70,12 @@ footer .svg-icon {
 .stripped {
     background: repeating-linear-gradient(
     45deg,
-    #606dbc,
-    #606dbc 10px,
-    #465298 10px,
-    #465298 20px
+    #ffd46d,
+    #ffd46d 10px,
+    #fbbc05 10px,
+    #fbbc05 20px
     );
-    color: white !important;
+    color: black !important;
     border: none !important;
 }
 .feature-link {
@@ -115,7 +142,7 @@ footer .svg-icon {
 #comments {
     font-size: 11px;
     font-weight: bold;
-    color: #385898;
+    color: #fbbc05;
 }
 .fb-comments:not([fb-xfbml-state="rendered"])::after {
     content: url(/assets/img/shared/fb-loading.gif);
