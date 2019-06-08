@@ -4,10 +4,36 @@ title: "Arena Of Evolution: Red Tides Guide"
 adsense: no
 comment: no
 ---
-<h2>Wiki</h2>
-{%- include features.html -%}
+<style>
+    .site-header {
+        height: calc(100vh - 100px);
+    }
+    #features {
+        position: absolute;
+        color: white;
+        top: 100px;
+        left: 0px;
+        margin: 50px;
+    }
+    @media screen and (max-width:991px) {
+        .site-header {
+            height: 650px;
+        }
+    }
+</style>
+<div id="features">
+    <div class="row">
+        <div class="col-12 col-md-6 d-none d-md-block">
+            <h2>Download now on <a href="{{ site.download_link }}" target="_blank">Google Play</a></h2>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Mqg7t5Fw4do?start=6&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2>Wiki</h2>
+            {%- include features.html -%}
+        </div>
+    </div>
+</div>
 {%- if site.posts.size > 0 -%}
-<h2>Guides</h2>
 <ul class="post-list">
     {%- for post in site.posts -%}
     <li class="{{ post.class }}">

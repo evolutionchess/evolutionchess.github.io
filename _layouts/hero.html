@@ -10,11 +10,11 @@ layout: default
           <h1 class="post-title">{{ page.title | escape }}</h1>
           <h3>
             {% for spec in page.spec %}
-              <span id="{{ spec | replace: " ", "-" }}" style="color: blue; cursor: pointer;">{{ spec }}</span>
+              <a href="#" id="{{ spec | replace: " ", "-" }}">{{ spec }}</a>
             {% endfor %}
             -
             {% for class in page.class %}
-              <span id="{{ class | replace: " ", "-" }}" style="color: green; cursor: pointer;">{{ class }}</span>
+              <a href="#" id="{{ class | replace: " ", "-" }}">{{ class }}</a>
             {% endfor %}
           </h3>
         </header>

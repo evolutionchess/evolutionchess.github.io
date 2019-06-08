@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     color: white;
     font-family: 'Roboto Slab', serif;
 }
@@ -85,6 +86,7 @@ footer .svg-icon {
     padding: 10px;
 }
 .feature-link a {
+    background-color: white;
     display: table-cell;
     font-size: 20px;
     vertical-align: middle;
