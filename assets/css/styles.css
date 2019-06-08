@@ -121,3 +121,17 @@ footer .svg-icon {
     content: url(/assets/img/shared/fb-loading.gif);
     margin-left: 10px;
 }
+#diff .up {
+    color: #34a853;
+    font-weight: bold;
+}
+#diff .up::after {
+    content: "\2191"
+}
+#diff .down {
+    font-weight: bold;
+    color: tomato;
+}
+#diff .down::after {
+    content: "\2193"
+}

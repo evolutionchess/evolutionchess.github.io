@@ -1,0 +1,166 @@
+{
+    "Name": "Current Tier List",
+    "Tier": 
+    {
+        "Early": {
+            "S": [
+                "Vajra",
+                "Blademaster",
+                "Keenedge"
+            ],
+            "A": [
+                "Sunfire",
+                "Medic",
+                "Thunderer",
+                "Illusionist",
+                "Slasher",
+                "Marauder",
+                "Electrocutioner",
+                "Kamikaze",
+                "Gorilla",
+                "Panda Monk"
+            ],
+            "B": [
+                "Shuriken Panda",
+                "Mortus",
+                "Engineer",
+                "Acidtooth",
+                "Tusker",
+                "Vinewarden",
+                "Dragon Breath",
+                "Ironbird Rider",
+                "Siren"
+            ],
+            "C": [
+                "Arhat",
+                "Razorclaw",
+                "Skycrab",
+                "Paviser"
+            ],
+            "D": [
+                "Sniper",
+                "Oculus"
+            ]
+        },
+        "Mid": {
+            "S+": [
+                "Sunfire"
+            ],
+            "S": [
+                "Chan Master",
+                "Blademaster",
+                "Skyclaw",
+                "Electrocutioner"
+            ],
+            "A": [
+                "Cruiser",
+                "Bone Dragon",
+                "Direwing",
+                "Medic",
+                "Shuriken Panda",
+                "Oculus",
+                "Thunderer",
+                "Illusionist",
+                "Electrocutioner",
+                "Vinewarden",
+                "Mindbreaker",
+                "Goldmane",
+                "Dreadpaw",
+                "Arhat",
+                "Slasher",
+                "Grenadier"
+            ],
+            "B": [
+                "Warbringer",
+                "Bulwark",
+                "Soulmentor",
+                "Keenedge",
+                "Vajra",
+                "Slasher",
+                "Acidtooth",
+                "Kamikaze",
+                "Tusker",
+                "Dragon Breath",
+                "Siren",
+                "Mantakor"
+            ],
+            "C": [
+                "Commando",
+                "Engineer",
+                "Outrider",
+                "Razorclaw",
+                "Skycrab",
+                "Panda Monk",
+                "Paviser"
+            ],
+            "D": [
+                "Sniper",
+                "Chanter"
+            ],
+            "E": [
+                "Ironbird Rider"
+            ]
+        },
+        "Late": {
+            "S+": [
+                "Sunfire",
+                "Hailstorm"
+            ],
+            "S": [
+                "Mirage Caller",
+                "Skyclaw",
+                "Chan Master"
+            ],
+            "A": [
+                "Forest Rager",
+                "Tempest Keeper",
+                "Cruiser",
+                "Bone Dragon",
+                "Direwing",
+                "Shuriken Panda",
+                "Electrocutioner",
+                "Oculus",
+                "Thunderer",
+                "Illusionist",
+                "Chanter",
+                "Electrocutioner",
+                "Vinewarden",
+                "Mindbreaker"
+            ],
+            "B": [
+                "Devourer",
+                "Goldmane",
+                "Slasher",
+                "Dreadpaw",
+                "Grenadier",
+                "Catapult",
+                "Blademaster",
+                "Warbringer",
+                "Bulwark",
+                "Soulmentor",
+                "Keenedge",
+                "Arhat",
+                "Sentinel",
+                "Tusker",
+                "Hive Queen",
+                "Commando",
+                "Sniper",
+                "Siren"
+            ],
+            "C": [
+                "Outrider",
+                "Engineer",
+                "Skycrab",
+                "Panda Monk",
+                "Paviser"
+            ],
+            "D": [
+                "Mantakor",
+                "Ironbird Rider"
+            ],
+            "E": [
+                "Skycrab"
+            ]
+        }
+    }
+}

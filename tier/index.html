@@ -1,0 +1,144 @@
+---
+layout: page
+title: Arena of Evolution Tier List
+menu: Tier
+description: "Tier List of Arena of Evolution: Red Tides. Which heroes you must buy, should buy or never buy in early game, mid game and late game."
+tiers:
+  - 20190606
+  - 20190523
+  - 20190319
+---
+{% assign heroes = site.pages | where: "layout", "hero" %}
+<link rel="stylesheet" href="/assets/css/tooltip.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/v-tooltip"></script>
+{% raw %}
+<div v-if="tier" id="tier">
+  <h2>{{ tier.Name }}</h2>
+  <table>
+    <tr>
+      <th></th>
+      <th v-for="(heroes, stage) in tier.Tier">{{ stage }}</th>
+    </tr>
+    <tr v-for="rank in ranks">
+      <th>{{ rank }}</th>
+      <td v-for="(list, stage) in tier.Tier">
+        <a v-for="hero in list[rank]" target="_blank" :href="heroes[hero].url"><img :src="`/assets/img/heroes/avatar/${hero}.png`" width="50" v-tooltip="tooltip(hero)"></a>
+      </td>
+    </tr>
+  </table>
+  <div v-if="diffresult" id="diff">
+    <h2>Changes list</h2>
+    <table>
+      <tr>
+        <th colspan="2"></th>
+        <th>{{ compare.Name }}</th>
+        <th>{{ tier.Name }} <small>(viewing)</small></th>
+      </tr>
+      <template v-for="(results, stage) in diffresult">
+        <tr v-for="(result, i) in results">
+          <th v-if="i == 0" :rowspan="results.length">{{ stage }}</th>
+          <th><img :src="`/assets/img/heroes/avatar/${result.name}.png`" width="20"> {{ result.name }}</th>
+          <td>{{ result.rank.new }}</td>
+          <td v-if="result.rank.old" :class="result.status">{{ result.rank.old }}</td>
+          <td v-if="!result.rank.old">No data</td>
+        </tr>
+      </template>
+    </table>
+  </div>
+  <h4>Compares with other updates: </h4>
+  <div>
+    <ul>
+      <li v-for="update in updates" @click="load(update)"><a href="#">Update {{ update }}</a> <span v-if="update == viewing">(viewing)</span></li>
+    </ul>
+  </div>
+</div>
+{% endraw %}
+
+<script>
+  Vue.use(VTooltip);
+  var app = new Vue({
+    el: '#tier',
+    methods: {
+      tooltip: function(name) {
+        return `<b>${name}</b> - ${this.heroes[name].spec} - ${this.heroes[name].class}`
+      },
+      diff: function() {
+        if (this.compare == null) return;
+        this.diffresult = {
+          Early: [],
+          Mid: [],
+          Late: []
+        }
+        for (const stage in this.compare.Tier) {
+          for (const rank in this.compare.Tier[stage]) {
+            for (const i in this.compare.Tier[stage][rank]) {
+              let hero = this.compare.Tier[stage][rank][i]
+              if (this.tier.Tier[stage][rank].indexOf(hero) == -1) {
+                var old = '';
+                for (const rank in this.tier.Tier[stage]) {
+                  if (this.tier.Tier[stage][rank].indexOf(hero) > -1) {
+                    old = rank;
+                    break;
+                  }
+                }
+                this.diffresult[stage].push({
+                  name: hero,
+                  rank: {
+                    old: old,
+                    new: rank
+                  },
+                  status: this.ranks.indexOf(rank) > this.ranks.indexOf(old) ? 'up' : 'down'
+                })
+              }
+            }
+          }
+        }
+      },
+      read: function(update, into, callback) {
+        fetch(update + '.json')
+          .then(res => res.json())
+          .then(data => {
+            this[into] = data
+            if (callback) {
+              callback()
+            }
+          })
+      },
+      load: function(update) {
+        if (this.tier) {
+          this.compare = this.tier;  
+        }
+        this.viewing = update;
+        this.read(update, 'tier', () => {
+          this.diff()
+        })
+      }
+    },
+    mounted: function() {
+      this.read(this.updates[1], 'compare')
+      this.load(this.updates[0])
+    },
+    data: {
+      ranks: ["S+", "S", "A", "B", "C", "D", "E"],
+      tier: null,
+      viewing: null,
+      compare: null,
+      diffresult: null,
+      heroes: {
+        {% for hero in heroes %}
+        "{{ hero.title }}": {
+          spec: "{{ hero.spec | join: ' - ' }}",
+          class: "{{ hero.class | join: ' - ' }}",
+          url: "{{ hero.url }}"
+        },
+        {% endfor %}
+      },
+      updates: [
+        {% for update in page.tiers %}
+          "{{ update }}",
+        {% endfor %}
+      ]
+    }
+  })
+</script>
