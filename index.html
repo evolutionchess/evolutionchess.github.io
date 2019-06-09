@@ -32,6 +32,15 @@ comment: no
             {%- include features.html -%}
         </div>
     </div>
+    <a id="particles-off" href="/" onclick="window.localStorage.setItem('particles', 'no')" style="float: right">Turn off visual effect</a>
+    <a id="particles-on" href="/" onclick="window.localStorage.setItem('particles', 'yes')" style="float: right">Turn on visual effect</a>
+    <script>
+        if (localStorage.getItem('particles') === 'no') {
+            document.getElementById('particles-off').classList.add('hidden');
+        } else {
+            document.getElementById('particles-on').classList.add('hidden');
+        }
+    </script>
 </div>
 {%- if site.posts.size > 0 -%}
 <ul class="post-list">

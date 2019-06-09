@@ -28,7 +28,7 @@ tiers:
     </tr>
   </table>
   <div v-if="diffresult" id="diff">
-    <h2>Changes list</h2>
+    <h2>Changes List</h2>
     <table>
       <tr>
         <th colspan="2"></th>
@@ -116,8 +116,9 @@ tiers:
       }
     },
     mounted: function() {
-      this.read(this.updates[1], 'compare')
-      this.load(this.updates[0])
+      this.read(this.updates[1], 'compare', () => {
+        this.load(this.updates[0])
+      });
     },
     data: {
       ranks: ["S+", "S", "A", "B", "C", "D", "E"],
