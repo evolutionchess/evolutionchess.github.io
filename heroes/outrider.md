@@ -4,9 +4,11 @@ title: Outrider
 spec: Rider
 class: Blaster
 skill:
-    name: Madness Shoot
-    description: Fire 3 bullets in a row, dealing massive ability damage.
+    name: Napalm Grenade
+    description: The Outrider fires a certain number of Napalm Grenades at the target. The grenade explodes after 3s, inflicting a lot of damage to the target. Enemies nearby will also suffer a small amount of splash damage.
     stats:
         Cooldown: 10s
-        Ability Damage: 200/300/400
+        Number of Napalm Grenades: 1/2/3
+        Ability Damage: 400
+        Splash Damage: 80
 ---

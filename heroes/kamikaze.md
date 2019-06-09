@@ -11,3 +11,5 @@ skill:
         Radius: 15/20/25
         Ability Damage: 200/300/400
 ---
+### Tips
+During the period of Kamikaze’s Detonation ability, she will not be stunned or petrified. 

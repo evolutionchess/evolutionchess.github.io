@@ -77,6 +77,7 @@
                 "Keenedge",
                 "Vajra",
                 "Slasher",
+                "Outrider",
                 "Acidtooth",
                 "Kamikaze",
                 "Tusker",
@@ -87,9 +88,9 @@
             "C": [
                 "Commando",
                 "Engineer",
-                "Outrider",
                 "Razorclaw",
                 "Skycrab",
+                "Ironbird Rider",
                 "Panda Monk",
                 "Paviser"
             ],
@@ -98,7 +99,6 @@
                 "Chanter"
             ],
             "E": [
-                "Ironbird Rider"
             ]
         },
         "Late": {
@@ -122,7 +122,6 @@
                 "Oculus",
                 "Thunderer",
                 "Illusionist",
-                "Chanter",
                 "Electrocutioner",
                 "Vinewarden",
                 "Mindbreaker"
@@ -132,6 +131,7 @@
                 "Goldmane",
                 "Slasher",
                 "Dreadpaw",
+                "Chanter",
                 "Grenadier",
                 "Catapult",
                 "Blademaster",
@@ -155,8 +155,7 @@
                 "Paviser"
             ],
             "D": [
-                "Mantakor",
-                "Ironbird Rider"
+                "Mantakor"
             ],
             "E": [
                 "Skycrab"
