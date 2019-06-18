@@ -10,11 +10,11 @@ Air Force,2,4,All friendly air units have an additional +20% evasion
 Puppet,1,2,All friendly puppets have +10% damage
 Puppet,2,4,All friendly puppets have an additional +15% damage
 Puppet,3,6,All allies have an additional +20% damage
-Psyker,1,2,All friendly Psykers reflect 25 damage back when struck
-Psyker,2,4,All allies reflect an additional 25 damage back when struck
+Psyker,1,2,All friendly Psykers reflect 20 true damage
+Psyker,2,4,All allies reflect an additional 20 true damage
 Walker,1,1,Walker deals true damage. Active when you control only one walker on the field
-Kraken,1,2,All friendly air units have +8% energy gained by dealing damage
-Kraken,2,4,All friendly air units have +12% energy gained by dealing damage
+Kraken,1,2,All friendly air units have +15% energy gained by dealing damage
+Kraken,2,4,All friendly air units have +30% energy gained by dealing damage
 Beast,1,2,All friendly beast have +10% attack speed
 Beast,2,4,All allies have +15% attack speed
 Beast,3,6,All allies have an additional +35% attack speed
@@ -22,6 +22,5 @@ Raptor,1,2,All friendly air units have +20% damage when against enemy land heroe
 Raptor,2,4,All friendly air units have an additional +25% damage when against enemy land heroes
 Insectoid,1,2,Two Insectoid Lv.1 can upgrade to an Insectoid Lv.2
 Insectoid,2,4,Two Insectoid Lv.2 can upgrade to an Insectoid Lv.3
-Immortal,1,2,"Upon dying, immortal heroes continue to fight for 3 seconds"
-Immortal,2,3,"Upon dying, immortal heroes continue to fight for 6 seconds"
+Immortal,1,2,"Upon dying, immortal heroes continue to fight for 4 seconds"
 Panda,1,3,All friendly pandas have 100 energy when battle starts

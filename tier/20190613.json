@@ -1,5 +1,5 @@
 {
-    "Name": "Update 0606 Tier List",
+    "Name": "Current Tier List",
     "Tier": 
     {
         "Early": {
@@ -56,8 +56,10 @@
                 "Cruiser",
                 "Bone Dragon",
                 "Direwing",
+                "Medic",
                 "Shuriken Panda",
                 "Oculus",
+                "Dauntless",
                 "Thunderer",
                 "Illusionist",
                 "Electrocutioner",
@@ -73,7 +75,6 @@
                 "Warbringer",
                 "Bulwark",
                 "Soulmentor",
-                "Medic",
                 "Keenedge",
                 "Vajra",
                 "Slasher",
@@ -109,28 +110,30 @@
             "S": [
                 "Mirage Caller",
                 "Skyclaw",
-                "Chan Master"
+                "Chan Master",
+                "Tempest Keeper"
             ],
             "A": [
                 "Forest Rager",
-                "Tempest Keeper",
+                "Medic",
+                "Dreadpaw",
                 "Cruiser",
                 "Bone Dragon",
                 "Direwing",
+                "Mantakor",
                 "Shuriken Panda",
                 "Electrocutioner",
                 "Oculus",
+                "Dauntless",
                 "Thunderer",
                 "Illusionist",
                 "Electrocutioner",
-                "Vinewarden",
-                "Mindbreaker"
+                "Vinewarden"
             ],
             "B": [
                 "Devourer",
                 "Goldmane",
                 "Slasher",
-                "Dreadpaw",
                 "Chanter",
                 "Grenadier",
                 "Catapult",
@@ -155,8 +158,7 @@
                 "Paviser"
             ],
             "D": [
-                "Mantakor",
-                "Medic"
+                "Mindbreaker"
             ],
             "E": [
                 "Skycrab"

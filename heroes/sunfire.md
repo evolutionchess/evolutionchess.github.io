@@ -11,7 +11,7 @@ skill:
     stats:
         Cooldown: 15s
         Rectangle Area: 25*5
-        Duration: 5/7/9
+        Duration: 4s/5.5s/7s
         Total Damage: 600/980/1440
         Health After Rebirth: 900/1800
 ---

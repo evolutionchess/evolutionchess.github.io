@@ -2,7 +2,7 @@
 layout: hero
 title: Warbringer
 spec: Puppet
-class: Guardian
+class: Vanguard
 skill:
     name: Swiftwind
     description: With each continous blow on the same target, Warbringer gains increased attack speed. If Warbringer changes targets, the stacks drop to zero.

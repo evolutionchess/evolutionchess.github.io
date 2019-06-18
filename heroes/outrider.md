@@ -10,5 +10,5 @@ skill:
         Cooldown: 10s
         Number of Napalm Grenades: 1/2/3
         Ability Damage: 400
-        Splash Damage: 80
+        Splash Damage: 120
 ---

@@ -9,4 +9,5 @@ skill:
     stats:
         Cooldown: 16s
         Healing Amount: 300/400/500
+        Radius: 7/12/17
 ---
