@@ -76,4 +76,4 @@ Supporter late game is not considering lack of damage output. In the contrary, b
 ### NOTE
 This build have a very big weakness, which make counter is very possible. It's very vulnerable to Assassins mix which can one shot everything. With the player that have good skill in positioning, he can put his Assassin in a perfect place that he can kill all your carriers, leaving your supporter hopelessly crawling for damage.
 
-Hope you guys found this useful. Comment if you wnat to contribute any opinion. Thank you and have fun playing the game!
+Hope you guys found this useful. Comment if you want to contribute any opinion. Thank you and have fun playing the game!
