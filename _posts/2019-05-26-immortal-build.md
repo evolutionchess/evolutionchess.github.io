@@ -26,20 +26,7 @@ The goal of the build was to get the double or triple immortal bonus as fast as 
 - Hailstorm (Mech Blaster)
 
 ### IDEAL FINAL BUILD
-
-Immortal x3 | Vanguard x3 | Beast x2 | Raptor x4 | Specialist x2 | Mech x2 | Blaster x3 | Walker x1
-Vinegarden, Bonewyrm, Forest Rager | Skyclaw, Tusker or Acidtooth, Forest Rager | Skyclaw, Tusker or Acidtooth | Skyclaw, Bone Dragon, Sunfire, Devourer | Vinewarden, Devourer | Gorilla, Hailstorm | Sunfire, Bone Dragon, Tempest Keeper | Tempest Keeper
-
-1. Tusker or Acidtooth
-2. Skyclaw
-3. Gorilla
-4. Hailstorm
-5. Sunfire
-6. Vinegarden
-7. Bonewyrm
-8. Devourer
-9. Forest Rager
-10. Tempest Keeper
+<iframe width="100%" height="500" src="https://evolutionchess.github.io/embed/mix.html?c=[[0,11,3,17,53,43,21,19],[-1,-1,-1,49,48,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1]]" frameborder="0" allowfullscreen></iframe>
 
 ### EARLY GAME
 

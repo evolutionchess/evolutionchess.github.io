@@ -32,9 +32,13 @@ Because supporters has the least damage outputs. You will need a (or more) range
 - Outrider (Rider - Blaster)
 - Hierophant (Psyker - Blaster)
 
-![Early game](/assets/img/posts/2019-06-10-early-game.png)
+### IDEAL ARMY
+<iframe width="100%" height="500" src="https://evolutionchess.github.io/embed/mix.html?c=[[-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,43,36,48],[-1,-1,-1,-1,-1,7,31,16],[-1,-1,-1,-1,47,25,1,8]]" frameborder="0" allowfullscreen></iframe>
+
 ### EARLY GAME
 The early game is the hardest stage of your life. Try not to lose too much HP on these first rounds!
+
+![Early game](/assets/img/posts/2019-06-10-early-game.png)
 
 At this stage you should not buy a longshot hero yet. Took a strong melee hero can make your life easier, Vajra and any Beast hero should do the work. Assassins can also be fine, but they usually jump to the back of the enemies, which make your Medic and Chanter useless.
 

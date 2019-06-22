@@ -28,6 +28,9 @@ However tanker unit itself very vulnerable to AOE damage. Heroes like Sunfire or
 - Soulmentor (Beast - Supporter) - If you got Chanter on your team then this is a must. Supporter goes very well with tanking unit, since they can heal so much lost HP because of enemies's AOE damage.
 - Dreadpaw (Beast - Summoner) / Mantakor (Kraken - Puppet - Summoner) - The new update require only 2 Summoners to active the synergy, you don't have to buy all 2 of them to corporate with Illusionist. However, if you're a fan of Summoner team (like me), grab them all!
 
+### IDEAL ARMY
+<iframe width="100%" height="500" src="https://evolutionchess.github.io/embed/mix.html?c=[[-1,-1,26,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,52,18,29],[-1,-1,-1,-1,-1,47,7,50],[-1,-1,-1,-1,-1,22,4,24]]" frameborder="0" allowfullscreen></iframe>
+
 ### EARLY GAME
 
 Psyker early game is not that much important. Feel free to grab anything you want (because your core heroes usally not come up this stage). To make a good first impression, buy the tankiest hero of the five you see in the store. Don't forget to group at least 1 synergy before the real battle start. Some suggestions is:
