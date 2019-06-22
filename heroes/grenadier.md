@@ -10,3 +10,5 @@ skill:
         Cooldown: 15s
         Total Damage: 200/280/360
 ---
+### Tips
+- The target of High-Explosive Projectile will be the place where more enemies are gathered.   

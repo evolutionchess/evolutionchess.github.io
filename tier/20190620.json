@@ -1,14 +1,14 @@
 {
-    "Name": "Update 0613 Tier List",
+    "Name": "Update 0620 Tier List (Current)",
     "Tier": 
     {
         "Early": {
             "S": [
-                "Vajra",
                 "Blademaster",
                 "Keenedge"
             ],
             "A": [
+                "Vajra",
                 "Sunfire",
                 "Medic",
                 "Thunderer",
@@ -16,7 +16,7 @@
                 "Slasher",
                 "Marauder",
                 "Electrocutioner",
-                "Kamikaze",
+                "Dragon Breath",
                 "Gorilla",
                 "Panda Monk"
             ],
@@ -24,18 +24,18 @@
                 "Shuriken Panda",
                 "Mortus",
                 "Engineer",
+                "Kamikaze",
                 "Acidtooth",
                 "Tusker",
+                "Paviser",
                 "Vinewarden",
-                "Dragon Breath",
                 "Ironbird Rider",
                 "Siren"
             ],
             "C": [
                 "Arhat",
                 "Razorclaw",
-                "Skycrab",
-                "Paviser"
+                "Skycrab"
             ],
             "D": [
                 "Sniper",
@@ -53,6 +53,7 @@
                 "Electrocutioner"
             ],
             "A": [
+                "Mantakor",
                 "Cruiser",
                 "Bone Dragon",
                 "Direwing",
@@ -75,16 +76,15 @@
                 "Warbringer",
                 "Bulwark",
                 "Soulmentor",
+                "Paviser",
                 "Keenedge",
                 "Vajra",
                 "Slasher",
                 "Outrider",
                 "Acidtooth",
-                "Kamikaze",
                 "Tusker",
                 "Dragon Breath",
-                "Siren",
-                "Mantakor"
+                "Siren"
             ],
             "C": [
                 "Commando",
@@ -92,28 +92,29 @@
                 "Razorclaw",
                 "Skycrab",
                 "Ironbird Rider",
-                "Panda Monk",
-                "Paviser"
+                "Panda Monk"
             ],
             "D": [
                 "Sniper",
                 "Chanter"
             ],
             "E": [
+                "Kamikaze"
             ]
         },
         "Late": {
             "S+": [
-                "Sunfire",
-                "Hailstorm"
+                "Mirage Caller",
+                "Hailstorm",
+                "Sunfire"
             ],
             "S": [
-                "Mirage Caller",
-                "Skyclaw",
+                "Ironshell",
                 "Chan Master",
                 "Tempest Keeper"
             ],
             "A": [
+                "Skyclaw",
                 "Forest Rager",
                 "Medic",
                 "Dreadpaw",
@@ -141,11 +142,13 @@
                 "Warbringer",
                 "Bulwark",
                 "Soulmentor",
+                "Skycrab",
                 "Keenedge",
                 "Arhat",
                 "Sentinel",
                 "Tusker",
                 "Hive Queen",
+                "Paviser",
                 "Commando",
                 "Sniper",
                 "Siren"
@@ -154,14 +157,13 @@
                 "Outrider",
                 "Engineer",
                 "Skycrab",
-                "Panda Monk",
-                "Paviser"
+                "Panda Monk"
             ],
             "D": [
                 "Mindbreaker"
             ],
             "E": [
-                "Skycrab"
+                "Kamikaze"
             ]
         }
     }
