@@ -14,6 +14,7 @@ main {
 }
 a, a:visited, .site-nav .page-link, .site-title, .site-title:visited {
     color: #fbbc05;
+    cursor: pointer;
 }
 a:hover {
     text-decoration: none;
@@ -106,6 +107,9 @@ footer .svg-icon {
 .feature-link a:hover , .post-list li a:hover {
     box-shadow: 1px 1px 5px grey;
 }
+[v-cloak] {
+    display: none;
+}
 #mix .square {
     position: relative;
     display: inline-block;
@@ -120,6 +124,42 @@ footer .svg-icon {
     margin: 1px;
     float: left;
     border-radius: 10px;
+}
+#mix #share .toggle {
+    text-align: right;
+}
+#mix #share .overlay {
+    background: #000000CC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+#mix #share .content {
+    background: white;
+    position: fixed;
+    padding: 25px;
+    max-width: 100vw;
+    width: 400px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 5px grey;
+    z-index: 101;
+}
+#mix #share .link {
+    position: relative;
+}
+#mix #share .link input, #mix #share .iframe textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+#mix #share .link input:focus, #mix #share .iframe textarea:focus {
+    outline: none;
 }
 #summary {
     clear: both;

@@ -1,0 +1,447 @@
+<link rel="stylesheet" href="/assets/css/tooltip.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/v-tooltip"></script>
+{% assign heroes = site.pages | where: "layout", "hero" %}
+{% assign specs = site.data.specs | map: "Name" | uniq %}
+{% assign classes = site.data.classes | map: "Name" | uniq %}
+{% raw %}
+<div id="mix" v-cloak>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div v-if="groupBy == 'name'">
+        <div
+          v-for="hero in heroes"
+          v-if="!hero.inchess"
+          :v-key="hero.id"
+          class="square"
+          @click="pick(hero.id)"
+          draggable="true"
+          @dragstart="dragstart(hero.id, $event)"
+          :style="'background-image: ' + background(hero.name)"
+          v-tooltip="tooltip(hero)"></div>
+      </div>
+      <div v-if="groupBy == 'spec'">
+        <div v-for="s in specs">
+          <div><b>{{ s.name }}</b></div>
+          <div
+            v-for="hero in heroes"
+            v-if="!hero.inchess && hero.spec == s.name"
+            :v-key="hero.id"
+            class="square"
+            @click="pick(hero.id)"
+            draggable="true"
+            @dragstart="dragstart(hero.id, $event)"
+            :style="'background-image: ' + background(hero.name)"
+            v-tooltip="tooltip(hero)"></div>
+        </div>
+      </div>
+      <div v-if="groupBy == 'class'">
+        <div v-for="c in classes">
+          <div><b>{{ c.name }}</b></div>
+          <div
+            v-for="hero in heroes"
+            v-if="!hero.inchess && hero.class == c.name"
+            :v-key="hero.id"
+            class="square"
+            @click="pick(hero.id)"
+            draggable="true"
+            @dragstart="dragstart(hero.id, $event)"
+            :style="'background-image: ' + background(hero.name)"
+            v-tooltip="tooltip(hero)"></div>
+        </div>
+      </div>
+      <div style="clear: both">
+        <input type="radio" v-model="groupBy" value="name" id="groupByName"><label for="groupByName">Group by name</label><br/>
+        <input type="radio" v-model="groupBy" value="spec" id="groupBySpec"><label for="groupBySpec">Group by spec</label><br/>
+        <input type="radio" v-model="groupBy" value="class" id="groupByClass"><label for="groupByClass">Group by class</label><br/>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" v-if="chess">
+      <div v-for="i in 4">
+        <div
+          v-for="j in 8"
+          class="square blank"
+          draggable="true"
+          @click="recall(j, i)"
+          @dragstart="dragagain(j, i, $event)"
+          @dragover="dragover"
+          @dragleave="dragleave"
+          @drop="drop(j, i, $event)"
+          :style="heroes[chess[i-1][j-1]] ? 'background-image: ' + background(heroes[chess[i-1][j-1]].name) : ''"
+          v-tooltip="heroes[chess[i-1][j-1]] ? tooltip(heroes[chess[i-1][j-1]]) : ''">
+        </div>
+      </div>
+      <div id="summary">
+        <div class="row">
+          <div class="col-6"><b><span :style="inchess.length > 10 ? 'color: red' : ''">{{ inchess.length }}</span>/10</b> hero{{ inchess.length > 1 ? 'es' : ''}}</div>
+          <div class="col-6" v-tooltip="sumaryTooltip()">Total DPS: <b>{{ sumary.dps }}</b></div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div v-for="s in inspecs">
+              <b v-tooltip="buffTooltip(s)" class="blue" :style="'opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')">{{ s.info.name }}</b>
+              <div
+                v-for="(hero, i) in s.heroes"
+                :v-key="i"
+                class="square"
+                @click="view(hero)"
+                :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(s) ? '1' : '0.5')"
+                v-tooltip="tooltip(hero)"></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div v-for="(c, key) in inclasses">
+              <b v-tooltip="buffTooltip(c)" class="green" :style="'opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')">{{ c.info.name }}</b>
+              <div
+                v-for="(hero, i) in c.heroes"
+                :v-key="i"
+                class="square"
+                @click="view(hero)"
+                :style="'background-image: ' + background(hero.name) + '; opacity: ' + (i < activeNumber(c) ? '1' : '0.5')"
+                v-tooltip="tooltip(hero)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-12 col-lg-4">
+      <h3>Your buff</h3>
+      <input type="checkbox" v-model="onlyActive" id="onlyActive"><label for="onlyActive">Only show activated buff</label>
+      <div id="buff" class="row">
+        <div id="spec" class="col-6">
+          <div v-for="s in specs">
+            <b :class="buffclass(s.active)">{{ s.name }}</b>
+            <div v-for="stat in s.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
+          </div>
+        </div>
+        <div id="class" class="col-6">
+          <div v-for="c in classes">
+            <b :class="buffclass(c.active)">{{ c.name }}</b>
+            <div v-for="stat in c.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div id="share">
+        <div class="toggle">
+          <a @click="share">Share</a>
+        </div>
+        <div class="overlay" v-if="sharing" @click="sharing = false"></div>
+        <div class="content" v-if="sharing">
+          <h2>Share</h2>
+          <div class="link">
+            <small>Get sharing link</small>
+            <input id="share-link" type="text" :value="getShareLink()">
+            <a @click="copy('share-link')">Copy</a>
+          </div>
+          <div class="iframe">
+            <small>Or embed it on your web page</small>
+            <textarea id="share-iframe">{{ getShareIframe() }}</textarea>
+            <a @click="copy('share-iframe')">Copy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
+
+<script>
+Vue.use(VTooltip);
+var app = new Vue({
+  el: '#mix',
+  computed: {
+    inchess: function() {
+      return this.heroes.filter(h => h.inchess)
+    },
+    sumary: function() {
+      let sumary = {};
+      sumary.coin = this.inchess.reduce((s, e) => s + e.stat.coin, 0);
+      sumary.hp = this.inchess.reduce((s, e) => s + e.stat.health, 0);
+      sumary.armor = this.inchess.reduce((s, e) => s + e.stat.armor, 0);
+      sumary.minAtk = this.inchess.reduce((s, e) => s + e.stat.minAtk, 0);
+      sumary.maxAtk = this.inchess.reduce((s, e) => s + e.stat.maxAtk, 0);
+      sumary.damage = sumary.minAtk + '-' + sumary.maxAtk;
+      sumary.speed = this.inchess.reduce((s, e) => s + Number(e.stat.speed.substring(0, e.stat.speed.length - 1)), 0) / this.inchess.length;
+      sumary.range = this.inchess.reduce((s, e) => s + e.stat.range, 0) / this.inchess.length;
+      sumary.dps = (sumary.minAtk + sumary.maxAtk)/2/sumary.speed;
+      sumary.speed = this.round(sumary.speed);
+      sumary.range = this.round(sumary.range);
+      sumary.dps = this.round(sumary.dps);
+      return sumary;
+    },
+    inclasses: function() {
+      return this.classes
+        .map(c => ({
+          info: c,
+          heroes: this.inchess.filter(h => h.class.indexOf(c.name) >= 0)
+        }))
+        .filter(e => e.heroes.length > 0)
+        .sort((a, b) => b.heroes.length - a.heroes.length);
+    },
+    inspecs: function() {
+      return this.specs
+        .map(s => ({
+          info: s,
+          heroes: this.inchess.filter(h => h.spec.indexOf(s.name) >= 0)
+        }))
+        .filter(e => e.heroes.length > 0)
+        .sort((a, b) => b.heroes.length - a.heroes.length);
+    }
+  },
+  watch: {
+    inchess: function(val) {
+      this.specs.forEach(buff => {
+        buff.active = false;
+        buff.stats.forEach(lv => {
+          lv.active = false;
+        })
+      })
+      this.classes.forEach(buff => {
+        buff.active = false;
+        buff.stats.forEach(lv => {
+          lv.active = false;
+        })
+      })
+    }
+  },
+  mounted: function() {
+    this.restore();
+  },
+  methods: {
+    pick: function(index) {
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 8; j++) {
+          if (this.chess[i][j] == -1) {
+            this.chess[i][j] = index;
+            this.heroes[index].inchess = true;
+            return;
+          }
+        }
+      }
+    },
+    recall: function(x, y) {
+      let hero = this.heroes[this.chess[y-1][x-1]];
+      if (hero) {
+        hero.inchess = false;
+      }
+      this.chess[y-1][x-1] = -1;
+    },
+    view: function(hero) {
+      window.open('/heroes/' + hero.name.replace(' ', '-').toLowerCase(), '_blank').focus();
+    },
+    dragstart: function(i, e) {
+      e.dataTransfer.setData('index', i)
+    },
+    dragagain: function(x, y, e) {
+      this.heroes[this.chess[y-1][x-1]].inchess = false;
+      e.dataTransfer.setData('index', this.chess[y-1][x-1]);
+      this.chess[y-1][x-1] = -1;
+    },
+    dragover: function (e) {
+      e.preventDefault();
+      if (e.target.style.backgroundImage == '') {
+        e.target.style.backgroundColor = '#fbbc05';
+      }
+    },
+    dragleave: function (e) {
+      if (e.target.style.backgroundImage == '') {
+        e.target.style.backgroundColor = 'gray';
+      }
+    },
+    drop: function (x, y, e) {
+      e.target.style.backgroundColor = 'gray';
+      let i = Number(e.dataTransfer.getData('index'));
+      if (this.chess[y-1][x-1] == -1) {
+        this.chess[y-1][x-1] = i;
+        this.heroes[i].inchess = true;
+      }
+    },
+    background: function(name) {
+      return 'url(\'/assets/img/heroes/avatar/' + name + '.png\')'
+    },
+    tooltip: function(hero) {
+      return `<div><b>${hero.name}</b></div>
+        <small>
+          <div><i>${hero.spec} - ${hero.class}</i></div>
+          <div><b>Cost:</b> ${hero.stat.coin} ${hero.stat.coin > 1 ? 'coins' : 'coin'}</div>
+          <div><b>HP:</b> ${hero.stat.health}</div>
+          <div><b>Armor:</b> ${hero.stat.armor}</div>
+          <div><b>Damage:</b> ${hero.stat.minAtk}-${hero.stat.maxAtk}</div>
+          <div><b>Attack Speed:</b> ${hero.stat.speed}</div>
+          <div><b>Attack Range:</b> ${hero.stat.range}</div>
+          <div style="max-width: 200px"><b>${hero.skill.name}:</b> ${hero.skill.description}</div>
+        </small>
+      `;
+    },
+    buffTooltip: function(buff) {
+      return `<div><b>${buff.info.name}</b></div>
+        <small>
+          ${buff.info.stats.map(e => `<div><b>(${e.require})</b> ${e.buff}</div>`).join('')}
+        </small>
+      `;
+    },
+    sumaryTooltip: function() {
+      return `
+        <small>
+          <div><b>Total Cost:</b> ${this.sumary.coin}</div>
+          <div><b>Total HP:</b> ${this.sumary.hp}</div>
+          <div><b>Total Armor:</b> ${this.sumary.armor}</div>
+          <div><b>Total Damage:</b> ${this.sumary.damage}</div>
+          <div><b>Average Attack Speed:</b> ${this.sumary.speed}s</div>
+          <div><b>Average Attack Range:</b> ${this.sumary.range}</div>
+        </small>
+      `;
+    },
+    activeNumber: function(buff) {
+      let count = buff.heroes.length;
+      if (buff.info.name == "Walker" && count > 1) {
+        return 0;
+      }
+      let result = 0;
+      buff.info.stats.forEach(lv => {
+        if (lv.require <= count) {
+          buff.info.active = true;
+          lv.active = true;
+          if (lv.require > result) {
+            result = lv.require;            
+          }
+        }
+      })
+      return result;
+    },
+    buffclass: function(active) {
+      if (active) {
+        return 'active';
+      }
+      if (this.onlyActive && !active) {
+        return 'hidden';
+      }
+      return '';
+    },
+    round: function(x) {
+      let res = Math.round(x*100)/100;
+      if (Number.isNaN(res)) {
+        res = 0;
+      }
+      return res;
+    },
+    share: function() {
+        this.sharing = true;
+    },
+    getShareLink: function(embed) {
+      let params = JSON.stringify(this.chess);
+      let path = window.location.origin;
+      if (embed) {
+        path += '/embed/mix.html';
+      } else {
+        path += '/mix.html';
+      }
+      return `${path}?c=${params}`;
+    },
+    getShareIframe: function() {
+      return `<iframe width="100%" height="500" src="${this.getShareLink(true)}" frameborder="0" allowfullscreen></iframe>`;
+    },
+    copy: function(id) {
+      let input = document.getElementById(id);
+      let button = document.querySelector(`#${id} + a`);
+      input.select();
+      document.execCommand("copy");
+      button.innerHTML = '<span style="color: black">Copied</span>';
+      setTimeout(() => {
+        button.innerHTML = 'Copy';
+      }, 1000);
+    },
+    restore: function() {
+      let params = window.location.search.substring(3);
+      try {
+        params = JSON.parse(params);
+      } catch(error) {
+        params = null;
+      }
+      if (params) {
+        this.chess = params;
+        this.chess.forEach(row => {
+          row.forEach(i => {
+            if (i > -1) {
+              this.heroes[i].inchess = true;
+            }
+          })
+        });
+      } else {
+        this.chess = [
+          new Array(8).fill(-1), new Array(8).fill(-1), new Array(8).fill(-1), new Array(8).fill(-1)
+        ]
+      }
+    }
+  },
+  data: {
+    heroes: [
+      {% for hero in heroes %}
+      {
+        id: {{ forloop.index0 }},
+        name: "{{ hero.title }}",
+        spec: "{{ hero.spec | join: ' - ' }}",
+        class: "{{ hero.class | join: ' - ' }}",
+        skill: {
+          name: "{{ hero.skill.name }}",
+          description: "{{ hero.skill.description | escape }}"
+        },
+        stat: {
+          {% assign stat = site.data.stats | where: "Name", hero.title | first %}
+          coin: {{ stat.Coin }},
+          minAtk: {{ stat["Minimal Attack"] }},
+          maxAtk: {{ stat["Maximum Attack"] }},
+          health: {{ stat.Health }},
+          armor: {{ stat.Armor }},
+          range: {{ stat["Attack Range"] }},
+          speed: "{{ stat["Attack Speed"] }}"
+        },
+        inchess: false
+      },
+      {% endfor %}
+    ],
+    specs: [
+      {% for spec in specs %}
+      {
+        name: "{{ spec }}",
+        stats: [
+          {% assign levels = site.data.specs | where: "Name", spec %}
+          {% for level in levels %}
+            {
+              level: "{{ level.Level }}",
+              require: "{{ level.Require }}",
+              buff: "{{ level.Buff }}"
+            },
+          {% endfor %}
+        ]
+      },
+      {% endfor %}
+    ],
+    classes: [
+      {% for class in classes %}
+      {
+        name: "{{ class }}",
+        stats: [
+          {% assign levels = site.data.classes | where: "Name", class %}
+          {% for level in levels %}
+            {
+              level: "{{ level.Level }}",
+              require: "{{ level.Require }}",
+              buff: "{{ level.Buff }}"
+            },
+          {% endfor %}
+        ]
+      },
+      {% endfor %}
+    ],
+    chess: null,
+    groupBy: 'name',
+    onlyActive: true,
+    sharing: false
+  }
+})
+</script>
