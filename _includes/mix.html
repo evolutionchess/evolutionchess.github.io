@@ -22,7 +22,7 @@
       </div>
       <div v-if="groupBy == 'spec'">
         <div v-for="s in specs">
-          <div><b>{{ s.name }}</b></div>
+          <img v-tooltip="buffTooltip(s)" class="synergy medium" :src="`/assets/img/synergies/${s.name}.png`" />
           <div
             v-for="hero in heroes"
             v-if="!hero.inchess && hero.spec == s.name"
@@ -37,7 +37,7 @@
       </div>
       <div v-if="groupBy == 'class'">
         <div v-for="c in classes">
-          <div><b>{{ c.name }}</b></div>
+          <img v-tooltip="buffTooltip(c)" class="synergy medium" :src="`/assets/img/synergies/${c.name}.png`" />
           <div
             v-for="hero in heroes"
             v-if="!hero.inchess && hero.class == c.name"
@@ -79,7 +79,7 @@
         <div class="row">
           <div class="col-6">
             <div v-for="s in inspecs">
-              <b v-tooltip="buffTooltip(s)" class="blue" :style="'opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')">{{ s.info.name }}</b>
+              <img v-tooltip="buffTooltip(s.info)" :style="'opacity: ' + (activeNumber(s) > 0 ? '1' : '0.5')" class="synergy" :src="`/assets/img/synergies/${s.info.name}.png`" />
               <div
                 v-for="(hero, i) in s.heroes"
                 :v-key="i"
@@ -91,7 +91,7 @@
           </div>
           <div class="col-6">
             <div v-for="(c, key) in inclasses">
-              <b v-tooltip="buffTooltip(c)" class="green" :style="'opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')">{{ c.info.name }}</b>
+              <img v-tooltip="buffTooltip(c.info)" :style="'opacity: ' + (activeNumber(c) > 0 ? '1' : '0.5')" class="synergy" :src="`/assets/img/synergies/${c.info.name}.png`" />
               <div
                 v-for="(hero, i) in c.heroes"
                 :v-key="i"
@@ -105,18 +105,18 @@
       </div>
     </div>
     <div class="col-12 col-md-12 col-lg-4">
-      <h3>Your buff</h3>
-      <input type="checkbox" v-model="onlyActive" id="onlyActive"><label for="onlyActive">Only show activated buff</label>
+      <h3>Your synergies</h3>
+      <input type="checkbox" v-model="onlyActive" id="onlyActive"><label for="onlyActive">Only show activated synergies</label>
       <div id="buff" class="row">
         <div id="spec" class="col-6">
           <div v-for="s in specs">
-            <b :class="buffclass(s.active)">{{ s.name }}</b>
+            <b :class="buffclass(s.active)"><img class="synergy" :src="`/assets/img/synergies/${s.name}.png`" /> {{ s.name }}</b>
             <div v-for="stat in s.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
           </div>
         </div>
         <div id="class" class="col-6">
           <div v-for="c in classes">
-            <b :class="buffclass(c.active)">{{ c.name }}</b>
+            <b :class="buffclass(c.active)"><img class="synergy" :src="`/assets/img/synergies/${c.name}.png`" /> {{ c.name }}</b>
             <div v-for="stat in c.stats" :class="buffclass(stat.active)">({{ stat.require }}) - {{ stat.buff }}</div>
           </div>
         </div>
@@ -278,9 +278,9 @@ var app = new Vue({
       `;
     },
     buffTooltip: function(buff) {
-      return `<div><b>${buff.info.name}</b></div>
+      return `<div><b>${buff.name}</b></div>
         <small>
-          ${buff.info.stats.map(e => `<div><b>(${e.require})</b> ${e.buff}</div>`).join('')}
+          ${buff.stats.map(e => `<div><b>(${e.require})</b> ${e.buff}</div>`).join('')}
         </small>
       `;
     },

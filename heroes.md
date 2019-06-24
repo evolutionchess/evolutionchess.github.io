@@ -12,14 +12,14 @@ menu: Heroes
             <tr>
                 <th></th>
                 {% for class in classes %}
-                <th>{{class}}</th>
+                <th><img class="synergy" src="/assets/img/synergies/{{class}}.png" /><div>{{class}}</div></th>
                 {% endfor %}
             </tr>
         </thead>
         <tbody>
             {% for spec in specs %}
                 <tr>
-                    <th>{{spec}}</th>
+                    <th><img class="synergy" src="/assets/img/synergies/{{spec}}.png" /><div>{{spec}}</div></th>
                     {% for class in classes %}
                     <td>
                         {% for page in hero_pages %}

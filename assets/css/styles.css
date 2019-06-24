@@ -117,6 +117,7 @@ footer .svg-icon {
     padding-bottom: 12.5%;
     border-radius: 100%;
     background-size: cover;
+    vertical-align: middle;
     cursor: pointer;
 }
 #mix .blank {
@@ -211,4 +212,14 @@ footer .svg-icon {
     left: 0;
     top: 0;
     z-index: -1;
+}
+.synergy {
+    clip-path: polygon(8% 8%, 92% 8%, 92% 70%, 50% 92%, 8% 70%);
+    -webkit-clip-path: polygon(8% 8%, 92% 8%, 92% 70%, 50% 92%, 8% 70%);
+    width: 28px;
+    height: 32px;
+}
+.synergy.medium {
+    width: 45px;
+    height: 52px;
 }
