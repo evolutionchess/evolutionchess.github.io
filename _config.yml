@@ -26,8 +26,7 @@ menus:
   - Mix
   - Heroes
   - Tier
-  - Spec
-  - Class
+  - Synergies
 
 # Build settings
 markdown: kramdown

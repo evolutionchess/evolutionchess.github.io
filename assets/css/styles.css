@@ -26,6 +26,7 @@ img {
 }
 .site-nav {
     line-height: 100px;
+    z-index: 100;
 }
 .site-header {
     border: none;
@@ -91,6 +92,7 @@ footer .svg-icon {
     display: table-cell;
     font-size: 20px;
     vertical-align: middle;
+    cursor: pointer;
 }
 .post-list li {
     margin-bottom: 20px;

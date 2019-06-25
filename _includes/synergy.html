@@ -1,0 +1,27 @@
+{% assign hero_pages = site.pages | where: "layout", "hero" %}
+{% assign synergies = site.data[include.type_plural] | map: "Name" | uniq %}
+{% for synergy in synergies %}
+<div class="a-synergy">
+	<div id="{{ synergy | replace: " ", "-" }}" class="heroes">
+	    {% for page in hero_pages %}
+	        {% if page[include.type] contains synergy %}
+	            <a href="{{page.url}}" title="{{page.title}}">
+	                <img src="/assets/img/heroes/avatar/{{page.title}}.png"/>
+	            </a>
+	        {% endif %}
+	    {% endfor %}
+	</div>
+	<h2>
+		<img class="synergy medium" src="/assets/img/synergies/{{synergy}}.png" />
+		<a href="#{{ synergy | replace: " ", "-" }}">{{ synergy }}</a>
+	</h2>
+	<p>
+		<b>Active when you control (N) {{ synergy }} on the field:</b>
+		{% assign levels = site.data[include.type_plural] | where: "Name", synergy %}
+		{% for level in levels %}
+			<br/>({{ level.Require }}) {{ level.Buff }}
+		{% endfor %}
+	</p>
+	<div class="my-4"></div>
+</div>
+{% endfor %}
