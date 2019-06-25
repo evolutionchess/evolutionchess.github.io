@@ -1,0 +1,28 @@
+---
+layout: page
+title: Arena Of Evolution Items
+menu: Items
+---
+{% assign items = site.data.items %}
+<div class="responsive-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td><img class="item item-{{ item.Type | downcase }}" src="/assets/img/items/{{ item.Name }}.png" /></td>
+                    <th>{{ item.Name }}</th>
+                    <td>{{ item.Value | newline_to_br }}</td>
+                    <td>{{ item.Type }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

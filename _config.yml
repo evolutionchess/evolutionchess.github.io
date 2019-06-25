@@ -27,6 +27,7 @@ menus:
   - Heroes
   - Tier
   - Synergies
+  - Items
 
 # Build settings
 markdown: kramdown

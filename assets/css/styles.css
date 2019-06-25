@@ -54,18 +54,18 @@ footer .svg-icon {
     height: 25%;
     top: 70%;
 }
-#heroes {
+.responsive-table {
     width: 100%;
     overflow-x: auto;
     border: 1px solid #c9c9c9;
 }
-#heroes table {
+.responsive-table table {
     margin-bottom: 0px;
     font-size: 14px;
     text-align: center;
 }
 @media screen and (min-width:992px) {
-    #heroes table {
+    .responsive-table table {
         width: 100%;
         table-layout: fixed;
     }
@@ -224,4 +224,23 @@ footer .svg-icon {
 .synergy.medium {
     width: 45px;
     height: 52px;
+}
+.item {
+    max-width: 80px;
+    background-size: cover;
+}
+.item-common {
+    background-image: url(/assets/img/items/item-common.png);
+}
+.item-uncommon {
+    background-image: url(/assets/img/items/item-uncommon.png);
+}
+.item-rare {
+    background-image: url(/assets/img/items/item-rare.png);
+}
+.item-epic {
+    background-image: url(/assets/img/items/item-epic.png);
+}
+.item-legendary {
+    background-image: url(/assets/img/items/item-legendary.png);
 }

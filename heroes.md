@@ -6,7 +6,7 @@ menu: Heroes
 {% assign hero_pages = site.pages | where: "layout", "hero" %}
 {% assign specs = hero_pages | map: "spec" | uniq | sort %}
 {% assign classes = hero_pages | map: "class" | uniq | sort %}
-<div id="heroes">
+<div class="responsive-table">
     <table>
         <thead>
             <tr>

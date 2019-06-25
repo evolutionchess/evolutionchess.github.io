@@ -1,0 +1,74 @@
+Name,Value,Type
+Flash bomb,+25 Max Damage,Common  
+Steelforged Dagger,"+10 Min Damage
++10 Max Damage",Common  
+Shrewd Crossbow,+15 Attack speed,Common  
+Combatant's Necklace,+5% Lifesteal,Common  
+Bone Saw,-4 Armor to the target,Common  
+Thrash Blade,+5 Armor,Common  
+Conjurer's Sphere,+50% energy gained by dealing damage,Common  
+Resonating Crystal,+15% Ability damage resistance,Common  
+Wooden Stave,+20% Ablity damage,Common  
+Elixir of Repairing,+10 Health Regeneration,Common  
+Long Blade,"+20 Min Damage
++20 Max Damage",Uncommon
+Cloak of Revival,+10% Evasion,Uncommon
+Imperial Chest Armor,+10 Armor,Uncommon
+Crystal Ball,+20 energy when battle starts,Uncommon
+Growth Powder,"+300 Health
++20% energy gained through taking damage",Uncommon
+Voodoo Stave,+20% Ablity damage,Uncommon
+Calamity's Edge,"+10% chance to critical hit for 300% damage
++30 Max Damage",Rare
+Grenade Gun,+50 Max Damage,Rare
+Heavy Crossbow,+30 Attack speed,Rare
+Combatant's Necklace (Rare),"+10% Lifesteal
+Unique Ability: Summon(Coolsdown: 30s)
+Summons a puppet to join the battle for a round.",Rare
+Abyss Crystal,"+20% Ablity damage
+Unique Ability: Lash(Coolsdown: 10s)
+Deals 400 true damage to a random enemy.",Rare
+Life Capsule,"+300 Health
++20% Ability damage resistance",Rare
+Force Potion,"+15 Health Regeneration
++50% energy gained by dealing damage",Rare
+Soul Collector,"+30% Ablity damage
++10 Energy Regeneration",Rare
+Cloak of Darkness,"+10% Evasion
++10 Armor
++20 Health Regeneration",Rare
+Sharp Drill,"+40% Ablity damage
+Unique Ability: Shockwave(Cooldown: 20s)
+Randomly stuns an enemy for 5 seconds.",Epic
+Eye of Whale,"+50% energy gained by dealing damage
++30 Max Damage
+Unique Ability: Ocean Mist(Cooldown: 45s)
+Deals 200 ability damage to all enemies after 6s.",Epic
+Vial of Animated Blood,"+500 Health
+Unique Ability: Lifestea(Cooldown: 45s)
+Grants 10% lifesteal to 3 random allies.",Epic
+Voidcore Greatstaff,"+30% energy gained through taking damage
++15% Ability damage resistance
+Unique Ability: Smite
+Deals 50 ability damage to random 3 enemies every 4s. ",Epic
+Drape of the Righteous,"+20 Armor
++40 Max Damage
+Unique Ability: Intervene
+Grants 10 armor and 15 attack damage to all nearby allies. ",Epic
+Robe of the Void,"+15% chance to critical hit for 450% damage
+Unique Ability: Hide(CD:45s)
+60% chance of becoming invisible for 10s.
+*Area of effect damage can still hit the caster.",Epic
+Twin Blades,"+70 Min Damage
++70 Max Damage
+Unique Ability: Manjusaka(Coolsdown: 15s)
+Grants 100% chance to critic hit for 450% damage for 5s.",Legendary
+Chains of the Valorous,"+10% chance to critical hit for 600% damage
+Unique Ability: Moisturizing(Cooldown: 30s)
+Increases lifesteal percentage to 200% for 5 seconds.",Legendary
+Wrath of the Order,"+150% true damage
+Unique Ability: Energy Burst(Cooldown: 10s)
+Deals 900 damage to a random enemy.",Legendary
+Anthology of Gospel,"+30 Energy Regeneration
+Unique Ability: Retribution
+Deals 100 ability damage to 5 random enemies every 6s.",Legendary
