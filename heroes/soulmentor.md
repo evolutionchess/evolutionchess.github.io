@@ -5,9 +5,10 @@ spec: Beast
 class: Supporter
 skill:
     name: Chain Heal
-    description: Heals multiple friendly units.
+    description: Emits a powerful beam to connect multiple friendly units, increasing their armor and ability damage resistance. When connected friendly units take damage, Soulmentor also take true damage. This true damage will not stack within every 0.5s.
     stats:
-        Cooldown: 40s
-        Target: 4/5/6
-        Heal: 100/175/250
+        Cooldown: 25s
+        Connection: 3/4/5
+        Bonus Armor: 15/20/25
+        Bonus Ability Damage Resistance: 40/50/60
 ---

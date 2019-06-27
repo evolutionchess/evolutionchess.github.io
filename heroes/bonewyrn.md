@@ -1,6 +1,6 @@
 ---
 layout: hero
-title: Bone Dragon
+title: Bonewyrn
 spec:
     - Raptor
     - Immortal

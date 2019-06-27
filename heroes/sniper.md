@@ -9,5 +9,5 @@ skill:
     stats:
         Cooldown: 60s
         Damage Increase: 20/30/40
-        Bonus Attack Speed: 20/30/40
+        Bonus Attack Speed: 20/25/30
 ---
