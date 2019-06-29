@@ -11,9 +11,9 @@ tiers:
   - 20190319
 ---
 {% assign heroes = site.pages | where: "layout", "hero" %}
-<link rel="stylesheet" href="/assets/css/tooltip.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/v-tooltip"></script>
+<script src="/assets/js/v-tooltip.min.js"></script>
+<link rel="stylesheet" href="/assets/css/tooltip.css">
 {% raw %}
 <div v-if="tier" id="tier">
   <h2>{{ tier.Name }}</h2>
